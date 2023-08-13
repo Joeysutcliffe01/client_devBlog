@@ -1,0 +1,50 @@
+@import "Components/Header/nav.css";
+@import "Components/Posts/post.css";
+@import "Components/Hero/hero.css";
+@import "Components/Footer/footer.css";
+@import "Pages/LoginAndRegister/login_and_register.css";
+@import "Pages/Single_post/singlePost.css";
+@import "Pages/CreatePost/createPost.css";
+@import "Pages/Home/home.css";
+@import "Pages/EditPost/editPost.css";
+
+/* ----------------------------------- Global */
+
+body {
+  scrollbar-gutter: stable;
+  overflow-x: hidden;
+  min-height: 99.5vh;
+  /* border: 2px solid red; */
+}
+
+.main_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  overflow-x: hidden;
+  /* border: 2px solid red; */
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: .9rem;
+}
+
+.display_none {
+  display: none;
+  transition: all .3s ease-in-out;
+}
+
+.section_blob_top {
+  width: 33%;
+  position: absolute;
+  top: -12vw;
+  right: -17vw;
+  transform: rotate(365deg);
+  z-index: -1;
+  /* border: 2px solid red; */
+}

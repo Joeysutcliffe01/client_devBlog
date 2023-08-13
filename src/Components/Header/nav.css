@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    position: absolute;
+    top: 0rem;
+    padding: .5rem 0;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    height: 4.5rem;
+    /* border: 2px solid red; */
+}
+
+nav a,
+.posts_info a {
+    color: rgb(45, 52, 52);
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: rgb(111, 109, 109);
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 2rem;
+    font-family: 'VT323', monospace;
+    transition: all .2s ease-in-out;
+    /* border: 2px solid rgb(13, 255, 0); */
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+nav ul li {
+    list-style: none;
+    font-weight: 600;
+}
+
+.nav_register,
+.nav_login:hover {
+    padding: .5rem 1rem;
+    border-radius: .7rem;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+    color: white;
+    border: 2px solid rgb(255, 255, 255);
+}
+
+.nav_login,
+.nav_register:hover {
+    border-radius: .7rem;
+    padding: .5rem 1rem;
+    transition: all .3s ease-in-out;
+    color: white;
+    border: 2px solid rgba(111, 109, 109, 0);
+}
+
+.menu {
+    right: -3rem;
+    z-index: 1;
+    /* border: 2px solid red; */
+}
+
+.menu_closed {
+    right: -19rem;
+    z-index: 1;
+}
+
+.menu,
+.menu_closed {
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+    min-height: 100vh;
+    border-radius: 2rem 0 0 3rem;
+    background-color: rgb(255, 255, 255);
+    padding: .8rem 1rem;
+    position: absolute;
+    top: -.5rem;
+    transition: all .3s ease-in-out;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    border-color: rgba(240, 248, 255, 0);
+    /* border: 2px solid rgb(0, 255, 247); */
+}
+
+.user_img {
+    width: 2rem;
+    cursor: pointer;
+    padding: .3rem;
+    border-radius: 2rem;
+    transition: all .3s ease-in-out;
+    box-shadow: rgba(255, 255, 255, 0.84) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0) 0px 16px 8px, rgba(255, 255, 255, 0) 0px 32px 16px;
+    /* background-color: rgb(255, 255, 255); */
+}
+
+.menu_user_info_img {
+    margin: 1.2rem 0 1rem 0;
+    width: 2rem;
+    padding: .3rem;
+    border-radius: 2rem;
+}
+
+.user_img:hover,
+.menu_user_info_img {
+    /* transform: scale(1.1); */
+    box-shadow: rgba(255, 255, 255, 0.568) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(180, 179, 179, 0.09) 0px 32px 16px;
+}
+
+.menu_btn {
+    width: min-content;
+    border-radius: .3rem;
+    font-weight: 700;
+    color: rgb(95, 95, 96);
+    width: 2rem;
+    height: 2rem;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    border: 2px solid rgb(87, 87, 88);
+    background-color: rgb(247, 244, 244);
+    border: none;
+    transition: all .4s ease-in-out;
+    position: absolute;
+    right: 3rem;
+    top: 2rem;
+}
+
+.menu_btn:hover {
+    color: rgb(87, 87, 88);
+    background-color: rgb(249, 247, 247);
+    font-size: 1.01rem;
+    /* border: 2px solid rgb(87, 87, 88); */
+}
+
+.menu_user_info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    /* border: 2px solid red; */
+}
+
+.menu_user_info_h3 {
+    color: black;
+    font-size: 1.3rem;
+    width: 2rem;
+    height: 2rem;
+    /* border: 2px solid red; */
+}
+
+.menu_logout {
+    border: none;
+    background-color: transparent;
+    text-align: left;
+    padding: 0;
+    width: min-content;
+    margin-top: .5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    color: rgb(85, 82, 82);
+    /* border: 2px solid rgb(0, 255, 247); */
+
+}
