@@ -53,11 +53,7 @@ export const CreatePost = () => {
       "https://backend-devblog.onrender.com/create_post",
       {
         method: "POST",
-        headers:{
-              "Accept": "application/json",
-              "Access-Control-Allow-Origin": "*",
-              "Access-Control-Allow-Methods": "*"
-        },
+        headers: { "Content-Type": "application/json" },
         body: data,
         credentials: "include",
       }
