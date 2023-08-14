@@ -25,7 +25,10 @@ export function Posts({
         {/* ---------------------------------- post 1*/}
         <div className="posts">
           <Link to={`/post/${_id}`}>
-            <img src={"http://localhost:4000/" + cover} alt="react post" />
+            <img
+              src={"https://backend-devblog.onrender.com/" + cover}
+              alt="react post"
+            />
             <div className="posts_info">
               <h2 className="posts_info_h2 textoverflow">{title}</h2>
 

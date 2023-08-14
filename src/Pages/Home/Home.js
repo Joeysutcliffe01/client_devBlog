@@ -8,7 +8,7 @@ export const Home = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/post").then((res) => {
+    fetch("https://backend-devblog.onrender.com/post").then((res) => {
       res.json().then((posts) => {
         setPosts(posts);
       });

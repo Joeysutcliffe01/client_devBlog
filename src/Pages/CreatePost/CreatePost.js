@@ -49,11 +49,14 @@ export const CreatePost = () => {
 
     console.log("files--------", files);
 
-    const response = await fetch("http://localhost:4000/create_post", {
-      method: "POST",
-      body: data,
-      credentials: "include",
-    });
+    const response = await fetch(
+      "https://backend-devblog.onrender.com/create_post",
+      {
+        method: "POST",
+        body: data,
+        credentials: "include",
+      }
+    );
 
     if (response.ok) {
       setRedirect(true);

@@ -21,7 +21,7 @@ export const Nav = ({ menu, setMenu, setIsLogedIn, isLogedIn, hideNavBar }) => {
   // console.log("url--------", url);
 
   useEffect(() => {
-    fetch("http://localhost:4000/profile", {
+    fetch("https://backend-devblog.onrender.com/profile", {
       credentials: "include",
     }).then((res) => {
       res.json().then((userInfo) => {
@@ -46,7 +46,7 @@ export const Nav = ({ menu, setMenu, setIsLogedIn, isLogedIn, hideNavBar }) => {
   // console.log("userInformation------------", userInformation);
 
   const logout = () => {
-    fetch("http://localhost:4000/logout", {
+    fetch("https://backend-devblog.onrender.com/logout", {
       credentials: "include",
       method: "POST",
     });
