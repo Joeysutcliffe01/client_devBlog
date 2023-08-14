@@ -5,7 +5,7 @@ import { CreatePost } from "../CreatePost/CreatePost";
 import { SinglePost } from "../Single_post/SinglePost";
 import { EditPost } from "../EditPost/EditPost";
 import { Route, Routes, useLocation } from "react-router-dom";
-import { Home } from "../Home";
+import { Home } from "../Home/Home";
 
 export const RoutesPage = ({ setIsLogedIn, setMenu }) => {
   const location = useLocation;

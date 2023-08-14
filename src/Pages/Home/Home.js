@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Posts } from "../Components/Posts/Post";
-import { Hero } from "../Components/Hero/Hero";
+import { Posts } from "../../Components/Posts/Post";
+import { Hero } from "../../Components/Hero/Hero";
 import { motion } from "framer-motion";
 import blobEmpty1 from "../../Assets/Blobs/blob_empty_1.svg";
 
@@ -28,7 +28,7 @@ export const Home = () => {
       <Hero />
       {/* <img src={blobEmpty1} alt="empty blob" className="blob_empty" /> */}
       <div className="posts_container">
-        <img src={blobEmpty1} alt="empty blob" className="blob_empty" />
+        {/* <img src={blobEmpty1} alt="empty blob" className="blob_empty" /> */}
         {posts.length > 0 &&
           posts.map((post, i) => {
             return (
