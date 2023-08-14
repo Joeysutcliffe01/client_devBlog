@@ -1,8 +1,5 @@
 {
   "workbench.colorCustomizations": {
-    "[Material Theme Palenight High Contrast]": {},
-    "activityBar.background": "#302F0C",
-    "titleBar.activeBackground": "#444211",
-    "titleBar.activeForeground": "#FBFBEF"
+    "[Material Theme Palenight High Contrast]": {}
   }
 }
