@@ -26,7 +26,7 @@ export const Nav = ({
   // console.log("userInfoLocal from Nav---------", userInfoLocal);
 
   // useEffect(() => {
-  //   fetch("http://localhost:4000/profile", {
+  //   fetch("https://backend-devblog.onrender.com/profile", {
   //     credentials: "include",
   //   }).then((res) => {
   //     res.json().then((userInfo) => {
@@ -48,7 +48,7 @@ export const Nav = ({
   // console.log("userInfo from Nav------------??????????", userInfo);
 
   const logout = () => {
-    fetch("http://localhost:4000/logout", {
+    fetch("https://backend-devblog.onrender.com/logout", {
       credentials: "include",
       method: "POST",
     });

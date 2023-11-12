@@ -18,11 +18,14 @@ export const Register = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    const response = await fetch("http://localhost:4000/register", {
-      method: "POST",
-      body: JSON.stringify({ username, password }),
-      headers: { "Content-Type": "application/json" },
-    });
+    const response = await fetch(
+      "https://backend-devblog.onrender.com/register",
+      {
+        method: "POST",
+        body: JSON.stringify({ username, password }),
+        headers: { "Content-Type": "application/json" },
+      }
+    );
 
     if (response.status === 200) {
       setSuccessfulReg(true);

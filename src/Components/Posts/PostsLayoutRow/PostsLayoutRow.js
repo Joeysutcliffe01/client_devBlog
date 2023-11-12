@@ -7,7 +7,7 @@ export function PostsLayoutRow() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/post").then((res) => {
+    fetch("https://backend-devblog.onrender.com/post").then((res) => {
       res.json().then((posts) => {
         setPosts(posts);
       });
@@ -29,7 +29,9 @@ export function PostsLayoutRow() {
                     <Link to={`/post/${post._id}`}>
                       <img
                         className="posts-row-img"
-                        src={"http://localhost:4000/" + post.cover}
+                        src={
+                          "https://backend-devblog.onrender.com/" + post.cover
+                        }
                         alt="react post"
                       />
                       <div className="posts_info-row">

@@ -13,7 +13,7 @@ function App() {
   const [userInfoLocal, setUserInfoLocal] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:4000/profile", {
+    fetch("https://backend-devblog.onrender.com/profile", {
       credentials: "include",
     }).then((res) => {
       res.json().then((userInfo) => {
