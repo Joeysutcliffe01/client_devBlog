@@ -1,0 +1,109 @@
+.textoverflow {
+    white-space: wrap;
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis; */
+}
+
+.post_section_all-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5rem;
+
+    /* border: 2px solid rgb(0, 255, 68); */
+}
+
+.post_section_container-outer-row {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    width: 80%;
+    /* border: 2px solid rgb(255, 217, 0); */
+}
+
+.posts-row {
+    border-radius: 1rem;
+    margin: 4rem 0;
+    overflow: hidden;
+    transition: all .3s ease-in-out;
+    border: 2px solid rgb(242, 242, 243);
+}
+
+.posts-row:hover {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.posts-row a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    text-decoration: none;
+    color: rgb(61, 66, 71);
+    /* border: 2px solid rgb(0, 38, 255); */
+}
+
+
+
+.posts-img-container-row {
+    /* width: 30rem; */
+    height: 100%;
+    height: 28rem;
+    /* border: 2px solid rgb(255, 217, 0); */
+}
+
+.posts-img-row {
+    width: 30rem;
+    height: 31rem;
+    /* border: 2px solid rgb(89, 255, 0); */
+}
+
+.posts_info-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    padding: 0 2rem;
+    /* border: 2px solid rgb(251, 0, 255); */
+}
+
+.posts_info_h2-row {
+    font-size: 1.5rem;
+    text-align: center;
+    /* text-overflow: ellipsis; */
+    width: 100%;
+    /* border: 2px solid rgb(0, 217, 255); */
+}
+
+.post_auther_info_name-row {
+    font-weight: 700;
+    margin-bottom: .7rem;
+    /* border: 2px solid rgb(48, 52, 53); */
+
+}
+
+.post_auther_info_summary-row {
+    text-align: center;
+    /* border: 2px solid rgb(48, 52, 53); */
+}
+
+
+
+
+
+/* @media (min-width: 800px) {
+    .posts {
+        flex-direction: row;
+        margin: 4rem 0;
+        text-decoration: none;
+    }
+
+    .post_section img {
+        width: 100%;
+    }
+
+    .posts_info {
+        width: 100%;
+    }
+} */

@@ -1,64 +1,63 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, Navigate, useLocation, useParams } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import { UserContext } from "../UserContext/UserContext";
 import userIcon from "../../Assets/Nav/user_icon.png";
+import { CapitalizeFirst } from "../capitalizeFirst/CapitalizeFirst";
 
-const logedInUserInfo = window.localStorage.getItem("logedInUserInfo") || true;
+// const logedInUserInfo =
+//   window.localStorage.getItem("user_information") || false;
 
-export const Nav = ({ menu, setMenu, setIsLogedIn, isLogedIn, hideNavBar }) => {
-  const { setUserInfo, userInfo } = useContext(UserContext);
+export const Nav = ({
+  menu,
+  setMenu,
+  hideNavBar,
+  userInfoLocal,
+  setUserInfoLocal,
+}) => {
+  const { setUserInfo, userInfo, isLogedIn, setIsLogedIn } =
+    useContext(UserContext);
   const [redirect, setRedirect] = useState(false);
-  const [userInfoLocal, setUserInfoLocal] = useState(
-    JSON.parse(logedInUserInfo)
-  );
+  // const [userInfoLocal, setUserInfoLocal] = useState(false);
 
-  const username = userInfo?.username;
   const { pathname } = useLocation();
+  // window.location.reload(false);
+  // window.location.reload();
 
-  console.log("userInfoLocal.......---------------.........", userInfoLocal);
-  // const url = window.location.pathname;
+  // console.log("userInfoLocal from Nav---------", userInfoLocal);
 
-  // console.log("url--------", url);
+  // useEffect(() => {
+  //   fetch("http://localhost:4000/profile", {
+  //     credentials: "include",
+  //   }).then((res) => {
+  //     res.json().then((userInfo) => {
+  //       setUserInfoLocal(userInfo.username);
+  //     });
+  //   });
+  //   // setRedirect(true);
+  //   // console.log("userInfo from nav useEffect", userInfoLocal);
+  //   // setUserInfoLocal(JSON.parse(logedInUserInfo));
+  // }, []);
 
-  useEffect(() => {
-    fetch("https://backend-devblog.onrender.com/profile", {
-      credentials: "include",
-    }).then((res) => {
-      res.json().then((userInfo) => {
-        setUserInfo(userInfo.username);
-        console.log("UserInfo-----", userInfo);
-        setUserInfoLocal(userInfo.username);
-      });
-    });
-    setRedirect(false);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("logedInUserInfo", JSON.stringify(userInfoLocal));
-  }, [isLogedIn]);
-
-  // console.log("setUserInfo-----------------------", userInfo);
+  // console.log("userInfoLocal from Nav-----------------------", userInfoLocal);
 
   const handelMenu = () => {
     setMenu((prev) => !prev);
   };
 
-  // console.log("userInformation------------", userInformation);
+  // console.log("userInfoLocal from Nav------------??????????", userInfoLocal);
+  // console.log("userInfo from Nav------------??????????", userInfo);
 
   const logout = () => {
-    fetch("https://backend-devblog.onrender.com/logout", {
+    fetch("http://localhost:4000/logout", {
       credentials: "include",
       method: "POST",
     });
     setUserInfo(null);
     setMenu(false);
     setIsLogedIn(false);
-    // setRedirect(true);
+    setUserInfoLocal(null);
+    localStorage.removeItem("user_information");
   };
-
-  // console.log("userInfo----------", userInfo);
-  // console.log("isLogedIn----------", isLogedIn);
-  // console.log("userInfo.length----------", userInfo.length);
 
   if (redirect) {
     return <Navigate to={"/"} />;
@@ -72,7 +71,7 @@ export const Nav = ({ menu, setMenu, setIsLogedIn, isLogedIn, hideNavBar }) => {
         <Link to="/" className="logo">
           devBlog
         </Link>
-        {!isLogedIn && (
+        {!userInfoLocal && (
           <ul>
             <Link to="/login">
               <li className="nav_login">Login</li>
@@ -83,7 +82,7 @@ export const Nav = ({ menu, setMenu, setIsLogedIn, isLogedIn, hideNavBar }) => {
             </Link>
           </ul>
         )}
-        {isLogedIn && (
+        {userInfoLocal && (
           <>
             <img
               src={userIcon}
@@ -101,16 +100,21 @@ export const Nav = ({ menu, setMenu, setIsLogedIn, isLogedIn, hideNavBar }) => {
                   alt="logedin user icon"
                   className="menu_user_info_img"
                 />
-                <h3 className="menu_user_info_h3"> {userInfo.username}</h3>
+                <h3 className="menu_user_info_h3">
+                  {userInfoLocal && (
+                    <CapitalizeFirst str={userInfoLocal.username} />
+                  )}
+                  {/* {userInfoLocal && userInfoLocal.username} */}
+                </h3>
               </div>
 
-              <Link
+              {/* <Link
                 to="/create_post"
                 className="menu_create_post"
                 onClick={handelMenu}
               >
                 Create post
-              </Link>
+              </Link> */}
               <button onClick={logout} className="menu_logout">
                 Logout
               </button>

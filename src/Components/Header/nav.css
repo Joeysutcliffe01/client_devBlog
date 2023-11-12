@@ -72,11 +72,11 @@ nav ul li {
 .menu {
     right: -3rem;
     z-index: 1;
-    /* border: 2px solid red; */
+    /* border: 2px solid red;F */
 }
 
 .menu_closed {
-    right: -19rem;
+    right: -30rem;
     z-index: 1;
 }
 
@@ -84,7 +84,7 @@ nav ul li {
 .menu_closed {
     display: flex;
     flex-direction: column;
-    width: 15rem;
+    width: 20rem;
     min-height: 100vh;
     border-radius: 2rem 0 0 3rem;
     background-color: rgb(255, 255, 255);
@@ -169,6 +169,7 @@ nav ul li {
     margin-top: .5rem;
     font-size: 1rem;
     cursor: pointer;
+    font-weight: 600;
     color: rgb(85, 82, 82);
     /* border: 2px solid rgb(0, 255, 247); */
 

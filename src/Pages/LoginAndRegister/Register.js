@@ -5,36 +5,34 @@ import illustration from "../../Assets/LoginPage/login_illustration.png";
 
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import registerAnimation from "../../Assets/LottieAnimatio/Home/register_animation.json";
+import registerBtnAnimation from "../../Assets/LottieAnimatio/loading/loading_loihekua.json";
 
 export const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [successfulReg, setSuccessfulReg] = useState(false);
   const [badUsername, setBadUsername] = useState(false);
+  const [isloading, setIsLoading] = useState(false);
 
   const register = async (e) => {
     e.preventDefault();
-    const response = await fetch(
-      "https://backend-devblog.onrender.com/register",
-      {
-        method: "POST",
-        body: JSON.stringify({ username, password }),
-        headers: { "Content-Type": "application/json" },
-      }
-    );
+    setIsLoading(true);
 
-    console.log("response--------", response);
+    const response = await fetch("http://localhost:4000/register", {
+      method: "POST",
+      body: JSON.stringify({ username, password }),
+      headers: { "Content-Type": "application/json" },
+    });
 
     if (response.status === 200) {
-      // alert("registration successful");
       setSuccessfulReg(true);
       setUsername("");
       setPassword("");
       setBadUsername(false);
+      setIsLoading(false);
     } else {
-      console.log("response-----", response);
       setBadUsername(true);
-      // alert("registration_failed");
+      setIsLoading(false);
     }
   };
 
@@ -87,7 +85,27 @@ export const Register = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <button className="login_register_section_btn">Sign up</button>
+          <div className="login_registe_btn-container">
+            {!isloading ? (
+              <button className="login_register_section_btn">Login</button>
+            ) : (
+              <>
+                <button
+                  className="login_register_section_btn"
+                  style={{
+                    backgroundColor: "rgb(222,185,245)",
+                    color: "white",
+                  }}
+                >
+                  Loading...
+                </button>
+                <Lottie
+                  animationData={registerBtnAnimation}
+                  style={{ height: "10rem" }}
+                />
+              </>
+            )}
+          </div>
         </form>
       </section>
       <section className="register_illustration">
@@ -97,11 +115,7 @@ export const Register = () => {
             <p>Please try something else</p>
           </div>
         ) : (
-          <Lottie
-            animationData={registerAnimation}
-            // loop={false}
-            style={{ height: "99%" }}
-          />
+          <Lottie animationData={registerAnimation} style={{ height: "99%" }} />
         )}
       </section>
     </motion.div>

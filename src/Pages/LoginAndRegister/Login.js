@@ -1,43 +1,51 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
-import { useRef } from "react";
+// import { useRef } from "react";
 import { UserContext } from "../../Components/UserContext/UserContext";
 
-import Lottie, { LottieRefCurrentProps } from "lottie-react";
+import Lottie from "lottie-react";
 import loginAnimation from "../../Assets/LottieAnimatio/Home/login_animation_2.json";
+import loginLoadingBtn from "../../Assets/LottieAnimatio/loading/loading_loihekua.json";
 import { motion } from "framer-motion";
 
-import illustration from "../../Assets/LoginPage/login_illustration.png";
-
-export const Login = ({ setIsLogedIn, setHideNavBar }) => {
+export const Login = ({ setUserInfoLocal }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(false);
   const [badCredentials, setBadCredentials] = useState(false);
+  const [isloading, setIsLoading] = useState(false);
 
-  const { setUserInfo } = useContext(UserContext);
-  const animationRef = useRef(null);
+  const { setUserInfo, setIsLogedIn } = useContext(UserContext);
+  // const animationRef = useRef(null);
 
   const login = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
-    const response = await fetch("https://backend-devblog.onrender.com/login", {
+    const response = await fetch("http://localhost:4000/login", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: { "Content-Type": "application/json" },
       credentials: "include",
     });
 
-    // console.log("---------------response", response);
+    // window.localStorage.clear();
 
     if (response.ok) {
       response.json().then((userInfo) => {
         setUserInfo(userInfo);
         setRedirect(true);
         setIsLogedIn(true);
+        setIsLoading(false);
+        setUserInfoLocal(userInfo);
+        window.localStorage.setItem(
+          "user_information",
+          JSON.stringify(userInfo)
+        );
       });
     } else {
       setBadCredentials(true);
+      setIsLoading(false);
     }
   };
 
@@ -45,10 +53,7 @@ export const Login = ({ setIsLogedIn, setHideNavBar }) => {
     return <Navigate to={"/"} />;
   }
 
-  // console.log("badCredentials-----------", badCredentials);
-  // setHideNavBar(true);
-
-  console.log("Lottie", Lottie);
+  // console.log("Lottie", Lottie);
 
   return (
     <motion.div
@@ -102,17 +107,33 @@ export const Login = ({ setIsLogedIn, setHideNavBar }) => {
             />
           </div>
 
-          <button className="login_register_section_btn">Login</button>
+          <div className="login_registe_btn-container">
+            {!isloading ? (
+              <button className="login_register_section_btn">Login</button>
+            ) : (
+              <>
+                <button
+                  className="login_register_section_btn"
+                  style={{
+                    backgroundColor: "rgb(185,204,245)",
+                    color: "white",
+                  }}
+                >
+                  Loading...
+                </button>
+                <Lottie
+                  animationData={loginLoadingBtn}
+                  style={{ height: "10rem" }}
+                />
+              </>
+            )}
+          </div>
         </form>
       </section>
       <section className="login_illustration">
         <Lottie
           animationData={loginAnimation}
           loop={false}
-          // lottieRef={animationRef}
-          // onComplete={() => {
-          //   animationRef.current?.goToAndPlay(1, true);
-          // }}
           style={{ height: "99%" }}
         />
       </section>

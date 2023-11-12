@@ -5,18 +5,29 @@ import { UserContextProvider } from "./Components/UserContext/UserContext";
 import { useEffect, useState } from "react";
 import { Footer } from "./Components/Footer/Footer";
 
-const isLogedInFromLocalStorage =
-  window.localStorage.getItem("isLogedIn_localStorage") || true;
+const logedInUserInfo =
+  window.localStorage.getItem("user_information") || false;
 
 function App() {
   const [menu, setMenu] = useState();
-  const [isLogedIn, setIsLogedIn] = useState(
-    JSON.parse(isLogedInFromLocalStorage)
-  );
+  const [userInfoLocal, setUserInfoLocal] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem("isLogedIn_localStorage", JSON.stringify(isLogedIn));
-  }, [isLogedIn]);
+    fetch("http://localhost:4000/profile", {
+      credentials: "include",
+    }).then((res) => {
+      res.json().then((userInfo) => {
+        setUserInfoLocal(userInfo);
+      });
+    });
+    // setRedirect(true);
+    // console.log("userInfo from nav useEffect", userInfoLocal);
+    // setUserInfoLocal(JSON.parse(logedInUserInfo));
+  }, []);
+
+  // localStorage.removeItem("isLogedIn_localStorage");
+
+  // console.log("userInfoLocal from App____------", userInfoLocal);
 
   return (
     <UserContextProvider>
@@ -24,10 +35,10 @@ function App() {
         <Nav
           menu={menu}
           setMenu={setMenu}
-          setIsLogedIn={setIsLogedIn}
-          isLogedIn={isLogedIn}
+          userInfoLocal={userInfoLocal}
+          setUserInfoLocal={setUserInfoLocal}
         />
-        <RoutesPage setIsLogedIn={setIsLogedIn} setMenu={setMenu} />
+        <RoutesPage setMenu={setMenu} setUserInfoLocal={setUserInfoLocal} />
         {/* <Footer /> */}
       </main>
     </UserContextProvider>

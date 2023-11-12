@@ -1,7 +1,13 @@
 @import "Components/Header/nav.css";
-@import "Components/Posts/post.css";
+@import "Components/Posts/PostsLayoutColumn/Posts_layout_column.css";
+@import "Components/Posts/PostsLayoutRow/PostsLayoutRow.css";
+@import "Components/News/NewsLayoutRow/news_layout_row.css";
+@import "Components/SlowServerMessage/slow_server_message.css";
+@import "Components/Hero/hero.css";
 @import "Components/Hero/hero.css";
 @import "Components/Footer/footer.css";
+
+
 @import "Pages/LoginAndRegister/login_and_register.css";
 @import "Pages/Single_post/singlePost.css";
 @import "Pages/CreatePost/createPost.css";

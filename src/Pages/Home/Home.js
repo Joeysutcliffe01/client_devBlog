@@ -1,41 +1,33 @@
 import React, { useEffect, useState } from "react";
-import { Posts } from "../../Components/Posts/Post";
+import { PostsLayoutColumn } from "../../Components/Posts/PostsLayoutColumn/PostsLayoutColumn";
 import { Hero } from "../../Components/Hero/Hero";
-import { motion } from "framer-motion";
-import blobEmpty1 from "../../Assets/Blobs/blob_empty_1.svg";
+import { NewsLayoutColumn } from "../../Components/News/NewsLayoutColumn/NewsLayoutColumn";
+import { SlowServerMessage } from "../../Components/SlowServerMessage/SlowServerMessage";
 
 export const Home = () => {
-  const [posts, setPosts] = useState([]);
+  const [showBanner, setShowBanner] = useState(
+    window.localStorage.getItem("server_startup_message")
+  );
+
+  // window.localStorage.clear();
 
   useEffect(() => {
-    fetch("https://backend-devblog.onrender.com/post").then((res) => {
-      res.json().then((posts) => {
-        setPosts(posts);
-      });
-    });
-  }, []);
+    window.localStorage.setItem(
+      "server_startup_message",
+      JSON.parse(showBanner)
+    );
+  }, [showBanner]);
 
-  // console.log("posts_", posts && posts[0]._id);
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{
-        opacity: 1,
-      }}
-      exit={{ opacity: 0 }}
-      className="home_container"
-    >
-      <Hero />
-      {/* <img src={blobEmpty1} alt="empty blob" className="blob_empty" /> */}
-      <div className="posts_container">
-        {/* <img src={blobEmpty1} alt="empty blob" className="blob_empty" /> */}
-        {posts.length > 0 &&
-          posts.map((post, i) => {
-            return (
-              <Posts {...post} key={i + Math.floor(Math.random() * 100000)} />
-            );
-          })}
-      </div>
-    </motion.div>
+    <>
+      <section className="home_container">
+        <Hero />
+        <PostsLayoutColumn />
+        <NewsLayoutColumn />
+        {JSON.parse(showBanner) !== false && (
+          <SlowServerMessage setShowBanner={setShowBanner} />
+        )}
+      </section>
+    </>
   );
 };

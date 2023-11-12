@@ -22,17 +22,15 @@ export const EditPost = () => {
   useEffect(() => {
     // window.scrollTo(0, 0);
     window.scrollTo(0, 0);
-    fetch("https://backend-devblog.onrender.com/post/" + id).then(
-      (response) => {
-        response.json().then((postInfo) => {
-          setFullPostInfo(postInfo);
-          setTitle(postInfo.title);
-          setContent(postInfo.content);
-          setSummary(postInfo.summary);
-          setFiles(postInfo.cover);
-        });
-      }
-    );
+    fetch("http://localhost:4000/post/" + id).then((response) => {
+      response.json().then((postInfo) => {
+        setFullPostInfo(postInfo);
+        setTitle(postInfo.title);
+        setContent(postInfo.content);
+        setSummary(postInfo.summary);
+        setFiles(postInfo.cover);
+      });
+    });
   }, []);
 
   // console.log("files-------", typeof files === "string");
@@ -48,7 +46,7 @@ export const EditPost = () => {
     if (files?.[0]) {
       data.set("file", files?.[0]);
     }
-    const response = await fetch("https://backend-devblog.onrender.com/post", {
+    const response = await fetch("http://localhost:4000/post", {
       method: "PUT",
       body: data,
       credentials: "include",
@@ -85,7 +83,7 @@ export const EditPost = () => {
             />
           </div>
           <img
-            src={`https://backend-devblog.onrender.com/${files}`}
+            src={`http://localhost:4000/${files}`}
             alt="Create post cover icon placeholder"
             className="edit_post_cover_img"
           />

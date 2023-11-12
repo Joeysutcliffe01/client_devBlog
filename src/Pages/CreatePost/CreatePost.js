@@ -16,16 +16,16 @@ export const CreatePost = () => {
   const [summary, setSummary] = useState("");
   const [content, setContent] = useState("");
   const [files, setFiles] = useState("");
-  const { setUserInfo, userInfo } = useContext(UserContext);
+  // const {  userInfo } = useContext(UserContext);
   const [missingCoverPhoto, setMissingCoverPhoto] = useState(false);
 
-  const userName = userInfo?.username;
+  // const userName = userInfo?.username;
 
   // const  window.onbeforeunload = function () {
   //     window.scrollTo(0, 0);
   //   };
 
-  console.log("missingCoverPhoto--------------", missingCoverPhoto);
+  // console.log("missingCoverPhoto--------------", missingCoverPhoto);
 
   const createNewPost = async (e) => {
     e.preventDefault();
@@ -47,17 +47,14 @@ export const CreatePost = () => {
     data.set("content", content);
     data.set("file", files[0]);
 
-    console.log("files--------", files);
+    // console.log("files--------", files);
 
-    const response = await fetch(
-      "https://backend-devblog.onrender.com/create_post",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: data,
-        credentials: "include",
-      }
-    );
+    const response = await fetch("http://localhost:4000/create_post", {
+      method: "POST",
+      // headers: { "Content-Type": "application/json" },
+      body: data,
+      credentials: "include",
+    });
 
     if (response.ok) {
       setRedirect(true);

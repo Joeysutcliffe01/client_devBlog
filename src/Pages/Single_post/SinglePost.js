@@ -12,31 +12,28 @@ export const SinglePost = () => {
   const { userInfo } = useContext(UserContext);
   const { id } = useParams();
 
-  console.log("----------userInfo----------", userInfo);
-
-  // const { title, summary, author, content, cover, createdAt, updatedAt } =
-  //   postInfo;
-
-  console.log("postInfo", postInfo);
-
   useEffect(() => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
 
-    fetch(`https://backend-devblog.onrender.com/post/${id}`).then((res) => {
+    fetch(`http://localhost:4000/post/${id}`).then((res) => {
       res.json().then((resInfo) => {
         setPostInfo(resInfo);
       });
     });
   }, []);
 
-  console.log();
+  // console.log();
 
   if (!postInfo) return "";
 
-  console.log("postInfo singlePost----------------", postInfo.cover);
+  // console.log(
+  //   "singlePost----------------",
+  //   postInfo.author.username === userInfo
+  // );
+  // console.log("userInfo----------------", userInfo);
 
   return (
     <motion.section
@@ -57,7 +54,7 @@ export const SinglePost = () => {
       <div className="single_post_hero">
         <img
           className="single_post_cover_img"
-          src={`https://backend-devblog.onrender.com/${postInfo.cover}`}
+          src={`http://localhost:4000/${postInfo.cover}`}
           alt="cover"
         />
         <h3>{"@" + postInfo.author.username}</h3>
@@ -70,7 +67,7 @@ export const SinglePost = () => {
         <div dangerouslySetInnerHTML={{ __html: postInfo.content }}></div>
       </section>
       <section className="single_post_edit_btn_container">
-        {userInfo?.id === postInfo.author._id && (
+        {postInfo.author.username === userInfo && (
           <Link to={`/edit/${postInfo._id}`}>
             <button className="single_post_edit_btn">
               <h3 className="single_post_edit_btn_h3">Edit</h3>
