@@ -175,3 +175,9 @@
         width: 100%;
     }
 } */
+
+.comimg_soon_text{
+    width: 100%;
+    border: 2px solid red;
+    margin: 5rem 0;
+}

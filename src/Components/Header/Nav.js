@@ -1,11 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Link, Navigate, useLocation } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { UserContext } from "../UserContext/UserContext";
 import userIcon from "../../Assets/Nav/user_icon.png";
 import { CapitalizeFirst } from "../capitalizeFirst/CapitalizeFirst";
-
-// const logedInUserInfo =
-//   window.localStorage.getItem("user_information") || false;
 
 export const Nav = ({
   menu,
@@ -14,38 +11,21 @@ export const Nav = ({
   userInfoLocal,
   setUserInfoLocal,
 }) => {
-  const { setUserInfo, userInfo, isLogedIn, setIsLogedIn } =
+  const { setUserInfo, setIsLogedIn } =
     useContext(UserContext);
   const [redirect, setRedirect] = useState(false);
-  // const [userInfoLocal, setUserInfoLocal] = useState(false);
+  const navigate = useNavigate();
 
   const { pathname } = useLocation();
-  // window.location.reload(false);
-  // window.location.reload();
-
-  // console.log("userInfoLocal from Nav---------", userInfoLocal);
-
-  // useEffect(() => {
-  //   fetch("https://backend-devblog.onrender.com/profile", {
-  //     credentials: "include",
-  //   }).then((res) => {
-  //     res.json().then((userInfo) => {
-  //       setUserInfoLocal(userInfo.username);
-  //     });
-  //   });
-  //   // setRedirect(true);
-  //   // console.log("userInfo from nav useEffect", userInfoLocal);
-  //   // setUserInfoLocal(JSON.parse(logedInUserInfo));
-  // }, []);
-
-  // console.log("userInfoLocal from Nav-----------------------", userInfoLocal);
 
   const handelMenu = () => {
     setMenu((prev) => !prev);
   };
 
-  // console.log("userInfoLocal from Nav------------??????????", userInfoLocal);
-  // console.log("userInfo from Nav------------??????????", userInfo);
+  // endPoints:
+  // https://backend-devblog.onrender.com
+  // http://localhost:4000
+
 
   const logout = () => {
     fetch("https://backend-devblog.onrender.com/logout", {
@@ -57,10 +37,11 @@ export const Nav = ({
     setIsLogedIn(false);
     setUserInfoLocal(null);
     localStorage.removeItem("user_information");
+    navigate('/');
   };
 
   if (redirect) {
-    return <Navigate to={"/"} />;
+    return navigate('/');
   }
   if (pathname.includes("login")) return;
   if (pathname.includes("register")) return;

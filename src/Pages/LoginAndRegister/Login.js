@@ -53,8 +53,6 @@ export const Login = ({ setUserInfoLocal }) => {
     return <Navigate to={"/"} />;
   }
 
-  // console.log("Lottie", Lottie);
-
   return (
     <motion.div
       className="login_container"

@@ -10,11 +10,11 @@ import { AllBlogs } from "../AllBlogs/AllBlogs";
 import { AllArticles } from "../AllArticles/AllArticles";
 import { SingleArticle } from "../Single_article/SingleArticle";
 
-export const RoutesPage = ({ setMenu, setUserInfoLocal }) => {
+export const RoutesPage = ({ setMenu, setUserInfoLocal, userInfoLocal }) => {
   return (
     // <Routes location={location} key={location.pathname}>
     <Routes>
-      <Route index element={<Home />} />
+      <Route index element={<Home userInfoLocal={userInfoLocal} />} />
       <Route
         path={"/login"}
         element={<Login setUserInfoLocal={setUserInfoLocal} />}

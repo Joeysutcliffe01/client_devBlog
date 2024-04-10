@@ -4,10 +4,12 @@ import { Hero } from "../../Components/Hero/Hero";
 import { NewsLayoutColumn } from "../../Components/News/NewsLayoutColumn/NewsLayoutColumn";
 import { SlowServerMessage } from "../../Components/SlowServerMessage/SlowServerMessage";
 
-export const Home = () => {
+export const Home = (userInfoLocal) => {
   const [showBanner, setShowBanner] = useState(
     window.localStorage.getItem("server_startup_message")
   );
+
+  console.log("userInfoLocal---------", userInfoLocal)
 
   // window.localStorage.clear();
 
@@ -22,8 +24,14 @@ export const Home = () => {
     <>
       <section className="home_container">
         <Hero />
-        <PostsLayoutColumn />
-        <NewsLayoutColumn />
+
+        {userInfoLocal?.userInfoLocal ? (
+          <>
+          <PostsLayoutColumn />
+          <NewsLayoutColumn />
+          </>
+        ) : ""}
+        
         {JSON.parse(showBanner) !== false && (
           <SlowServerMessage setShowBanner={setShowBanner} />
         )}

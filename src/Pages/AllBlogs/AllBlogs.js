@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { PostsLayoutRow } from "../../Components/Posts/PostsLayoutRow/PostsLayoutRow";
 
 export const AllBlogs = () => {

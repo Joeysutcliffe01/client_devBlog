@@ -11,6 +11,11 @@ export function NewsLayoutRow() {
 
   const date = new Date();
 
+  const category = "software development"
+
+  const apikey = '583b2afd5f6e28180dc60eae68bdfccb';
+  const url = 'https://gnews.io/api/v4/search?q=' + category + '&lang=en&country=us&max=10&apikey=' + apikey;
+
   // console.log("news", news);
 
   useEffect(() => {
@@ -25,10 +30,8 @@ export function NewsLayoutRow() {
   // console.log("setYearToday", yearToday);
 
   useEffect(() => {
-    fetch(
-      // `https://newsapi.org/v2/top-headlines?sources=software&apiKey=dba4fba83f824f79a07764a22fb0075e`
-      `https://newsapi.org/v2/everything?q=software&from=2023-11-11&to=2023-11-11&sortBy=popularity&apiKey=dba4fba83f824f79a07764a22fb0075e`
-    ).then((res) => {
+    fetch(url)
+    .then((res) => {
       res.json().then((news) => {
         setNews(news.articles);
       });
@@ -75,19 +78,19 @@ export function NewsLayoutRow() {
                       <div className="posts-img-container-row">
                         <img
                           className="posts-img-row"
-                          src={post.urlToImage ? post.urlToImage : missingImg}
+                          src={post.image ? post.image : missingImg}
                           alt="react post"
                         />
                       </div>
-                      {/* {console.log("post.urlToImage", i, post.urlToImage)} */}
                       <div className="posts_info-row">
                         <h2 className="posts_info_h2-row textoverflow">
                           {post.title}
                         </h2>
-
+                    
                         <span className="post_auther_info_name-row">
-                          {post.author ? "@" + post.author : "@Unknown Auther"}
+                          {post.source ? "@" + post.source.name : "@Unknown Auther"}
                         </span>
+                        
                         <time className="post_auther_info_date-row">
                           {format(
                             new Date(post.publishedAt),

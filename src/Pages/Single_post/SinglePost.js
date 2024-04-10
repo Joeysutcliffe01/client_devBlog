@@ -5,7 +5,6 @@ import { UserContext } from "../../Components/UserContext/UserContext";
 import { motion } from "framer-motion";
 import pencil from "../../Assets/Icons/icons8-pencil-480.png";
 import blob5 from "../../Assets/Blobs/blob_5.svg";
-import blob3 from "../../Assets/Blobs/blob_3.svg";
 
 export const SinglePost = () => {
   const [postInfo, setPostInfo] = useState(null);
@@ -24,8 +23,6 @@ export const SinglePost = () => {
       });
     });
   }, []);
-
-  // console.log();
 
   if (!postInfo) return "";
 
@@ -46,11 +43,7 @@ export const SinglePost = () => {
       exit={{ opacity: 0 }}
     >
       <img src={blob5} alt="devVlog blob 5" className="section_blob_top" />
-      {/* <img
-        src={blob3}
-        alt="devVlog blob 3"
-        className="single_post_section_blob-3"
-      /> */}
+
       <div className="single_post_hero">
         <img
           className="single_post_cover_img"

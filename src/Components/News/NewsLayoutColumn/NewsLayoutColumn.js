@@ -5,37 +5,46 @@ import missingImg from "../../../Assets/News/news_missing_img.png";
 
 export function NewsLayoutColumn() {
   const [news, setNews] = useState([]);
-  // const [dateToday, setDateToday] = useState(new Date());
-  // const [monthToday, setMonthToday] = useState(new Date());
   const [showMorePosts, setShowMorePosts] = useState(false);
 
-  console.log("news from NewsLayoutColumn", news);
+  const url = 'https://google-news13.p.rapidapi.com/latest?lr=en-US';
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': 'eef162d29bmsh11f8710de43e1fbp1db100jsn00a4e4bcc838',
+      'X-RapidAPI-Host': 'google-news13.p.rapidapi.com'
+    }
+  };
 
   useEffect(() => {
+    try {
+      const response = fetch(url, options);
+      const result = JSON.parse(response)
+
+      setNews(result);
+      console.log("result inside of NewsLayoutColumn",result);
+    } catch (error) {
+      console.error(error);
+    }
     setShowMorePosts(true);
-    // setDateToday(dateToday?.getDate());
-    // setMonthToday(monthToday?.getMonth());
   }, []);
+
+  // useEffect(() => {
+  //   fetch(
+  //     url
+  //   ).then((res) => {
+  //     console.log("res", res)
+  //     res.json().then((news) => {
+  //       setNews(news.articles);
+  //     });
+  //   });
+  // }, []);
+
+  console.log("news from NewsLayoutColumn", news);
 
   const handelShowMorePosts = () => {
     setShowMorePosts((prev) => !prev);
   };
-
-  // console.log("date", date);
-  // console.log("dateToday", dateToday);
-  // console.log("monthToday", monthToday);
-  // console.log("setYearToday", yearToday);
-
-  useEffect(() => {
-    fetch(
-      // "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=dba4fba83f824f79a07764a22fb0075e"
-      `https://newsapi.org/v2/everything?q=software&from=2023-11-11&to=2023-11-11&sortBy=popularity&apiKey=dba4fba83f824f79a07764a22fb0075e`
-    ).then((res) => {
-      res.json().then((news) => {
-        setNews(news.articles);
-      });
-    });
-  }, []);
 
   //Ç If there are any issues with the first news api, uncomment
   // useEffect(() => {
@@ -63,8 +72,9 @@ export function NewsLayoutColumn() {
 
   return (
     <>
-      <section className="post_section">
-        <section className="posts_container-outer">
+      <h1 className="comimg_soon_text"> News articles coming soon 😁</h1>
+      {/* <section className="post_section"> */}
+        {/* <section className="posts_container-outer">
           <Link
             to={"/all_news"}
             className="posts_container-outer-see-all-blogs"
@@ -90,10 +100,10 @@ export function NewsLayoutColumn() {
                   >
                     <Link to={`/all_news/${post.title}`}>
                       <img
-                        src={post.urlToImage ? post.urlToImage : missingImg}
+                        src={post.image ? post.image : missingImg}
                         alt="react post"
                       />
-                      {/* {console.log("post.urlToImage", i, post.urlToImage)} */}
+
                       <div className="posts_info">
                         <h2 className="posts_info_h2 textoverflow">
                           {post.title}
@@ -124,8 +134,8 @@ export function NewsLayoutColumn() {
           >
             {showMorePosts ? "Show more" : "Show less"}
           </h3>
-        </section>
-      </section>
+        </section> */}
+      {/* </section> */}
     </>
   );
 }

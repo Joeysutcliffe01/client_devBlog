@@ -3,42 +3,44 @@ import { Nav } from "./Components/Header/Nav";
 import { RoutesPage } from "./Pages/Routes/RoutesPage";
 import { UserContextProvider } from "./Components/UserContext/UserContext";
 import { useEffect, useState } from "react";
-import { Footer } from "./Components/Footer/Footer";
+import { useLocation } from "react-router-dom";
+// import { Footer } from "./Components/Footer/Footer";
 
 const logedInUserInfo =
   window.localStorage.getItem("user_information") || false;
 
+  console.log("logedInUserInfo catched-------", logedInUserInfo)
+
 function App() {
   const [menu, setMenu] = useState();
-  const [userInfoLocal, setUserInfoLocal] = useState(false);
+  const [userInfoLocal, setUserInfoLocal] = useState(logedInUserInfo.username);
+
+  const { pathname } = useLocation();
+
+  const onPage = ['login', 'register', 'post'];
+
+  const isOnPage = onPage.some(page => pathname.includes(page));
+
+  console.log("isOnPage----", isOnPage)
 
   useEffect(() => {
-    fetch("https://backend-devblog.onrender.com/profile", {
-      credentials: "include",
-    }).then((res) => {
-      res.json().then((userInfo) => {
-        setUserInfoLocal(userInfo);
-      });
-    });
-    // setRedirect(true);
-    // console.log("userInfo from nav useEffect", userInfoLocal);
-    // setUserInfoLocal(JSON.parse(logedInUserInfo));
+    setUserInfoLocal(JSON.parse(window.localStorage.getItem("user_information")))
   }, []);
-
-  // localStorage.removeItem("isLogedIn_localStorage");
-
-  // console.log("userInfoLocal from App____------", userInfoLocal);
 
   return (
     <UserContextProvider>
-      <main className={menu ? "main_content fixed" : "main_content"}>
+      <main 
+      className={menu ? "main_content fixed" : "main_content"} 
+      style={{ position:  !userInfoLocal && !isOnPage && "fixed"}}
+  >
         <Nav
           menu={menu}
           setMenu={setMenu}
           userInfoLocal={userInfoLocal}
           setUserInfoLocal={setUserInfoLocal}
+          isOnPage={isOnPage}
         />
-        <RoutesPage setMenu={setMenu} setUserInfoLocal={setUserInfoLocal} />
+        <RoutesPage setMenu={setMenu} setUserInfoLocal={setUserInfoLocal} userInfoLocal={userInfoLocal} />
         {/* <Footer /> */}
       </main>
     </UserContextProvider>

@@ -3,11 +3,11 @@ import heroImg from "../../Assets/Home/hero_bg-2.png";
 import blob4 from "../../Assets/Blobs/blob_4.svg";
 import blob1 from "../../Assets/Blobs/blob_2.svg";
 import Lottie from "lottie-react";
-import heroAnimation from "../../Assets/LottieAnimatio/Home/animation_lkwlld5h.json";
+import heroAnimation from "../../Assets/LottieAnimatio/Home/Home_page_5.json";
 
 export const Hero = () => {
   return (
-    <section className="hero_section">
+    <section className="hero_section" style={{height:"100vh"}}>
       <img src={blob4} alt="devblog blobs" className="hero_blob_4" />
       <img src={blob1} alt="devblog blobs" className="hero_blob_1" />
       <Lottie animationData={heroAnimation} className="hero_anmation" />

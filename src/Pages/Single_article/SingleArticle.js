@@ -7,22 +7,20 @@ export const SingleArticle = () => {
   const [article, setArticle] = useState(null);
   const { id } = useParams();
 
+  const category = "software development"
+
+  const apikey = '583b2afd5f6e28180dc60eae68bdfccb';
+  const url = 'https://gnews.io/api/v4/search?q=' + category + '&lang=en&country=us&max=10&apikey=' + apikey;
+
   // console.log("id from SingleArticle", author);
   console.log("id from SingleArticle", article);
 
   useEffect(() => {
-    fetch(
-      `https://newsapi.org/v2/everything?q=software&from=2023-11-11&to=2023-11-11&sortBy=popularity&apiKey=dba4fba83f824f79a07764a22fb0075e`
-    ).then((res) => {
+    fetch(url).then((res) => {
+
+      console.log("res inside of SingleArticle", res)
       res.json().then((news) => {
         setArticle(news.articles.find((art) => art.title === id));
-        // console.log(
-        //   "looking for one Article----",
-        //   news.articles.find((art) => art.title === id)
-        // );
-
-        // console.log("foundArticle-----", foundArticle);
-        // setNews(news.articles);
       });
     });
   }, []);
@@ -54,19 +52,21 @@ export const SingleArticle = () => {
           <div className="single_post_hero">
             <img
               className="single_post_cover_img"
-              src={article?.urlToImage}
+              src={article?.image}
               alt="cover"
             />
-            <h3>{"@" + article?.author}</h3>
-            {/* <time className="">
-              {format(new Date(article.createdAt), "MMM d yyyy, HH:MM")}
-            </time> */}
+            <h3>{"@" + article?.source.name}</h3>
+
             <h2 className="single_post_title">{article.title}</h2>
           </div>
           <section className="">{article.description}</section>
           <section className="single_post_content">
             {/* Find how to info on: https://newsapi.org/docs/guides/how-to-get-the-full-content-for-a-news-article */}
-            <h1>Content coming soon</h1>
+            <section className="single_post_content">
+                <div>
+                  <p>{article?.content}</p>
+                </div>
+            </section>
           </section>
         </>
       )}

@@ -26,7 +26,7 @@ export function PostsLayoutRow() {
                     className="posts-row"
                     key={i + Math.floor(Math.random() * 100000)}
                   >
-                    <Link to={`/post/${post._id}`}>
+                    <Link className="posts-row-link" to={`/post/${post._id}`}>
                       <img
                         className="posts-row-img"
                         src={
