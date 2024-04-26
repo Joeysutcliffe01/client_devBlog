@@ -22,14 +22,12 @@ export const Login = ({ setUserInfoLocal }) => {
     e.preventDefault();
     setIsLoading(true);
 
-    const response = await fetch("https://backend-devblog.onrender.com/login", {
+    const response = await fetch("http://localhost:4000/login", {
       method: "POST",
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ username, password}),
       headers: { "Content-Type": "application/json" },
       credentials: "include",
     });
-
-    // window.localStorage.clear();
 
     if (response.ok) {
       response.json().then((userInfo) => {
@@ -38,6 +36,7 @@ export const Login = ({ setUserInfoLocal }) => {
         setIsLogedIn(true);
         setIsLoading(false);
         setUserInfoLocal(userInfo);
+        // console.log("userInfo inside of response.ok:", userInfo)
         window.localStorage.setItem(
           "user_information",
           JSON.stringify(userInfo)
@@ -66,7 +65,7 @@ export const Login = ({ setUserInfoLocal }) => {
       <section className="login_register_section">
         <Link to={"/"} className="login_register_section_home_link">
           {" "}
-          <h2>devBloog</h2>
+          <h2>devBlog</h2>
         </Link>
         <form onSubmit={login} className="login_section_form">
           <h3 className="login_register_section_h2">

@@ -9,7 +9,7 @@ export const Home = (userInfoLocal) => {
     window.localStorage.getItem("server_startup_message")
   );
 
-  console.log("userInfoLocal---------", userInfoLocal)
+  // console.log("userInfoLocal---------", userInfoLocal)
 
   // window.localStorage.clear();
 

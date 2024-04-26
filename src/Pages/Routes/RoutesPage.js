@@ -9,6 +9,7 @@ import { Home } from "../Home/Home";
 import { AllBlogs } from "../AllBlogs/AllBlogs";
 import { AllArticles } from "../AllArticles/AllArticles";
 import { SingleArticle } from "../Single_article/SingleArticle";
+import { PageNotFound } from "../pageNotFound/PageNotFound.js";
 
 export const RoutesPage = ({ setMenu, setUserInfoLocal, userInfoLocal }) => {
   return (
@@ -26,6 +27,7 @@ export const RoutesPage = ({ setMenu, setUserInfoLocal, userInfoLocal }) => {
       <Route path={"/all_news/:id"} element={<SingleArticle />} />
       <Route path={"/post/:id"} element={<SinglePost />} />
       <Route path={"/edit/:id"} element={<EditPost />} />
+      <Route path='*' element={<PageNotFound/>}/>
     </Routes>
   );
 };

@@ -5,11 +5,13 @@ import { UserContext } from "../../Components/UserContext/UserContext";
 import { motion } from "framer-motion";
 import pencil from "../../Assets/Icons/icons8-pencil-480.png";
 import blob5 from "../../Assets/Blobs/blob_5.svg";
+import { ScrollToTheTop } from "../../utils/ScroolTo/ScrollToTheTop";
 
 export const SinglePost = () => {
   const [postInfo, setPostInfo] = useState(null);
   const { userInfo } = useContext(UserContext);
   const { id } = useParams();
+  const showBtnAt = 800
 
   useEffect(() => {
     window.scrollTo({
@@ -17,7 +19,7 @@ export const SinglePost = () => {
       behavior: "smooth",
     });
 
-    fetch(`https://backend-devblog.onrender.com/post/${id}`).then((res) => {
+    fetch(`http://localhost:4000/post/${id}`).then((res) => {
       res.json().then((resInfo) => {
         setPostInfo(resInfo);
       });
@@ -72,7 +74,9 @@ export const SinglePost = () => {
             </button>
           </Link>
         )}
+
       </section>
+      <ScrollToTheTop showBtnAt={showBtnAt}/>
     </motion.section>
   );
 };

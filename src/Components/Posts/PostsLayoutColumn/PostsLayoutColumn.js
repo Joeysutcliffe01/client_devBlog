@@ -17,7 +17,7 @@ export function PostsLayoutColumn() {
   };
 
   useEffect(() => {
-    fetch("https://backend-devblog.onrender.com/post").then((res) => {
+    fetch("http://localhost:4000/post").then((res) => {
       res.json().then((posts) => {
         setPosts(posts);
       });
@@ -54,7 +54,7 @@ export function PostsLayoutColumn() {
                     <Link to={`/post/${post._id}`}>
                       <img
                         src={
-                          "https://backend-devblog.onrender.com/" + post.cover
+                          "http://localhost:4000/" + post.cover
                         }
                         alt="react post"
                       />

@@ -22,7 +22,7 @@ export function NewsLayoutColumn() {
       const result = JSON.parse(response)
 
       setNews(result);
-      console.log("result inside of NewsLayoutColumn",result);
+      // console.log("result inside of NewsLayoutColumn",result);
     } catch (error) {
       console.error(error);
     }
@@ -40,7 +40,7 @@ export function NewsLayoutColumn() {
   //   });
   // }, []);
 
-  console.log("news from NewsLayoutColumn", news);
+  // console.log("news from NewsLayoutColumn", news);
 
   const handelShowMorePosts = () => {
     setShowMorePosts((prev) => !prev);

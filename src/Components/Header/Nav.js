@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { UserContext } from "../UserContext/UserContext";
 import userIcon from "../../Assets/Nav/user_icon.png";
@@ -11,10 +11,24 @@ export const Nav = ({
   userInfoLocal,
   setUserInfoLocal,
 }) => {
-  const { setUserInfo, setIsLogedIn } =
-    useContext(UserContext);
+
+  const { setUserInfo, setIsLogedIn } = useContext(UserContext);
   const [redirect, setRedirect] = useState(false);
+  const [avatarSrc, setAvatarSrc] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if(userInfoLocal?.usersAvatar){
+      setAvatarSrc(userInfoLocal?.usersAvatar)
+    }else{
+      setAvatarSrc(userIcon)
+    }
+  }, [userInfoLocal]);
+
+  console.log("userInfoLocal?.usersAvatar inside of nav......", userInfoLocal)
+
+  console.log("avatarSrc inside of nav>", avatarSrc)
+
 
   const { pathname } = useLocation();
 
@@ -28,7 +42,7 @@ export const Nav = ({
 
 
   const logout = () => {
-    fetch("https://backend-devblog.onrender.com/logout", {
+    fetch("http://localhost:4000/logout", {
       credentials: "include",
       method: "POST",
     });
@@ -66,7 +80,7 @@ export const Nav = ({
         {userInfoLocal && (
           <>
             <img
-              src={userIcon}
+              src={avatarSrc}
               alt="logedin user"
               className={"user_img"}
               onClick={handelMenu}
@@ -77,7 +91,7 @@ export const Nav = ({
               </button>
               <div className=" menu_user_info">
                 <img
-                  src={userIcon}
+                  src={avatarSrc}
                   alt="logedin user icon"
                   className="menu_user_info_img"
                 />
@@ -85,18 +99,12 @@ export const Nav = ({
                   {userInfoLocal && (
                     <CapitalizeFirst str={userInfoLocal.username} />
                   )}
-                  {/* {userInfoLocal && userInfoLocal.username} */}
                 </h3>
               </div>
-
-              {/* <Link
-                to="/create_post"
-                className="menu_create_post"
-                onClick={handelMenu}
-              >
-                Create post
-              </Link> */}
-              <button onClick={logout} className="menu_logout">
+              <Link to="/all_blogs" className="nav_menu_btns">
+                Blog
+              </Link>
+              <button onClick={logout} className="nav_menu_btns">
                 Logout
               </button>
             </div>

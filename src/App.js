@@ -9,7 +9,7 @@ import { useLocation } from "react-router-dom";
 const logedInUserInfo =
   window.localStorage.getItem("user_information") || false;
 
-  console.log("logedInUserInfo catched-------", logedInUserInfo)
+  // console.log("logedInUserInfo catched-------", logedInUserInfo)
 
 function App() {
   const [menu, setMenu] = useState();
@@ -21,7 +21,7 @@ function App() {
 
   const isOnPage = onPage.some(page => pathname.includes(page));
 
-  console.log("isOnPage----", isOnPage)
+  // console.log("isOnPage----", isOnPage)
 
   useEffect(() => {
     setUserInfoLocal(JSON.parse(window.localStorage.getItem("user_information")))

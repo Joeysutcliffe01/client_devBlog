@@ -13,6 +13,11 @@
 @import "Pages/CreatePost/createPost.css";
 @import "Pages/Home/home.css";
 @import "Pages/EditPost/editPost.css";
+@import "Pages/pageNotFound/pageNotFound.css";
+
+@import "utils/ScroolTo/scroll_to_top.css";
+
+
 
 /* ----------------------------------- Global */
 
@@ -30,6 +35,7 @@ body {
   flex-direction: column;
   margin: 0 auto;
   overflow-x: hidden;
+  /* position: absolute; */
   /* border: 2px solid red; */
 }
 
