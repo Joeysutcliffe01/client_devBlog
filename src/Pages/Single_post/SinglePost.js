@@ -19,7 +19,7 @@ export const SinglePost = () => {
       behavior: "smooth",
     });
 
-    fetch(`http://localhost:4000/post/${id}`).then((res) => {
+    fetch(`https://backend-devblog.onrender.com/post/${id}`).then((res) => {
       res.json().then((resInfo) => {
         setPostInfo(resInfo);
       });

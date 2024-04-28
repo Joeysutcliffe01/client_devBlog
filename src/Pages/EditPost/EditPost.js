@@ -22,7 +22,7 @@ export const EditPost = () => {
   useEffect(() => {
     // window.scrollTo(0, 0);
     window.scrollTo(0, 0);
-    fetch("http://localhost:4000/post/" + id).then(
+    fetch("https://backend-devblog.onrender.com/post/" + id).then(
       (response) => {
         response.json().then((postInfo) => {
           setFullPostInfo(postInfo);
@@ -48,7 +48,7 @@ export const EditPost = () => {
     if (files?.[0]) {
       data.set("file", files?.[0]);
     }
-    const response = await fetch("http://localhost:4000/post", {
+    const response = await fetch("https://backend-devblog.onrender.com/post", {
       method: "PUT",
       body: data,
       credentials: "include",
