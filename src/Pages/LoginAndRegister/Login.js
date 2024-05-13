@@ -20,7 +20,7 @@ export const Login = ({ setUserInfoLocal }) => {
     e.preventDefault();
     setIsLoading(true);
 
-    const response = await fetch("https://backenddevblog.onrender.com/login", {
+    const response = await fetch("https://backend-devblog.onrender.com/login", {
       method: "POST",
       body: JSON.stringify({ username, password}),
       headers: { "Content-Type": "application/json" },

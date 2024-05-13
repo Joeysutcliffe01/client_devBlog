@@ -41,7 +41,7 @@ export const Nav = ({
 
 
   const logout = () => {
-    fetch("https://backenddevblog.onrender.com/logout", {
+    fetch("https://backend-devblog.onrender.com/logout", {
       credentials: "include",
       method: "POST",
     });

@@ -19,7 +19,7 @@ export const SinglePost = () => {
       behavior: "smooth",
     });
 
-    fetch(`https://backenddevblog.onrender.com/post/${id}`).then((res) => {
+    fetch(`https://backend-devblog.onrender.com/post/${id}`).then((res) => {
       res.json().then((resInfo) => {
         setPostInfo(resInfo);
       });
@@ -44,7 +44,7 @@ export const SinglePost = () => {
       <div className="single_post_hero">
         <img
           className="single_post_cover_img"
-          src={`https://backenddevblog.onrender.com/${postInfo.cover}`}
+          src={`https://backend-devblog.onrender.com/${postInfo.cover}`}
           alt="cover"
         />
         <h3>{"@" + postInfo.author.username}</h3>

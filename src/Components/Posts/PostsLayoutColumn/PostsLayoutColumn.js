@@ -19,8 +19,10 @@ export function PostsLayoutColumn() {
     setShowMorePosts((prev) => !prev);
   };
 
+  // https://backend-devblog.onrender.com
+
   useEffect(() => {
-    fetch("https://backenddevblog.onrender.com/post").then((res) => {
+    fetch("https://backend-devblog.onrender.com/post").then((res) => {
       res.json().then((posts) => {
         setPosts(posts);
       });
@@ -59,7 +61,7 @@ export function PostsLayoutColumn() {
                     <Link to={`/post/${post._id}`}>
                       <img
                         src={
-                          "https://backenddevblog.onrender.com/" + post.cover
+                          "https://backend-devblog.onrender.com/" + post.cover
                         }
                         alt="react post"
                       />
