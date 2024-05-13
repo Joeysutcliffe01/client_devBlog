@@ -1,0 +1,280 @@
+{
+    "Introduction": {
+      "Var Keyword": {
+        "declaration": "var b;",
+        "assignment": "b = 9;",
+        "example": [
+          "console.log(b); // => undefined",
+          "console.log(b); // => 9"
+        ],
+        "description": "var is a keyword in JavaScript that is used to declare variables. Variables declared using var are globally scoped or function-scoped. They can be reassigned and re-declared within their scope."
+      },
+      "Const Keyword": {
+        "declaration": "const pieValue = 3.14;",
+        "example": [
+          "console.log(pieValue); // => 3.14",
+          "// TypeError: Assignment to constant...",
+          "pieValue = 3.24;"
+        ],
+        "description": "The const keyword is used to create a constant. It is similar to a variable except that the value of a constant cannot be changed once it has been defined."
+      },
+      "Console": {
+        "example": [
+          "console.log('Good Morning!');",
+          "console.warn('Good %s', 'Morning!');",
+          "console.error(new Error('OH No!'));"
+        ],
+        "description": "The console in JavaScript is used for logging information as part of the debugging process."
+      },
+      "Let Keyword": {
+        "declaration": "let a;",
+        "assignment": "a = 6;",
+        "example": [
+          "console.log(a); // => undefined",
+          "console.log(a); // => 6"
+        ],
+        "description": "The let keyword in Javascript declares a variable. It permits the variable to only be available within the current block (or scope) of code."
+      }
+    },
+    "Variables": {
+      "example": [
+        "let a = 6;",
+        "let name  = \"Rahul\";",
+        "const pieValue = 3.14;",
+        "var b;",
+        "console.log(b); // => undefined"
+      ],
+      "description": "Variables are names assigned to parts of a computer program that store values that can be changed during the execution of the program."
+    },
+    "Numbers": {
+      "example": [
+        "let productAmount = 50;",
+        "let productTotal = 70.00"
+      ],
+      "description": "A number is a primitive data type that represents numerical values. It can be an integer (whole number) or a floating point number (decimal)."
+    },
+    "Strings": {
+      "example": [
+        "let homeAddress = \"Gandy Street,Saint Louis,Missouri,United States-63141\";",
+        "let officeAddress = \"Trinity Crescent,Whichford,United Kingdom-CV36 5SR\""
+      ],
+      "description": "A string in Javascript is a series of characters surrounded by single or double quotes. Strings are used to store and manipulate text."
+    },
+    "Scopes": {
+      "Block Scope": {
+        "example": ["// Uncaught ReferenceError...\nconsole.log(bulbOn);"],
+        "description": "Block Scope means that the variable can only be accessed from inside the block it was declared in, not outside."
+      },
+      "Global Scope": {
+        "example": ["myCity(); // California"],
+        "description": "The global scope is available throughout the entire program and can be accessed by any code within the program."
+      },
+      "Function Scope": {
+        "example": ["// Code here can't use country"],
+        "description": "Function scope in JavaScript refers to the environment in which a function is declared and executed."
+      }
+    },
+    "Operators": {
+      "Arithmetic Operators": {
+        "example": [
+          "3 + 3 = 6",
+          "6 - 3 = 3",
+          "6 * 10 = 60",
+          "6 / 3 = 2",
+          "10 % 6 = 0",
+          "x++;",
+          "x--;"
+        ],
+        "description": "Arithmetic operators in JavaScript are symbols that allow you to perform mathematical operations on one or more operands."
+      },
+      "Assignment Operators": {
+        "example": [
+          "num += 10;",
+          "num -= 10;",
+          "num *= 10;",
+          "num /= 10;"
+        ],
+        "description": "Assignment operators in Javascript are used to assign values to variables. They are a type of operator that assigns a value and returns it."
+      },
+      "Comparison Operators": {
+        "example": [
+          "a == 8",
+          "a === 5",
+          "a != 8",
+          "x !== 5",
+          "x > 8",
+          "x < 8",
+          "x >= 5",
+          "x <= 8"
+        ],
+        "description": "Comparison operators in JavaScript are used to compare two values and determine whether the condition is true or false."
+      },
+      "Ternary Operators": {
+        "example": ["let result = (age >= 18) ? \"You are eligible for vote.\" : \"You are not eligible for vote yet\";"],
+        "description": "A ternary operator in JavaScript is an alternative to writing an if/else statement."
+      },
+      "Logical Operators": {
+        "example": [
+          "10 > 3 || 9 > 20;",
+          "6 > 60 || 5 > 30;",
+          "true || false;",
+          "false || false;",
+          "1 > 6 && 6 > 1;",
+          "6 === 6 && 9 > 1;",
+          "true && true;",
+          "true && false;",
+          "let work = !officeWork;"
+        ],
+        "description": "Logical operators are used in JavaScript to perform logical operations on values."
+      },
+      "Bitwise Operators": {
+        "example": [
+          "5 & 1",
+          "5 | 1",
+          "~ 5",
+          "5 << 1",
+          "5 ^ 1",
+          "5 >> 1",
+          "5 >>> 1"
+        ],
+        "description": "Bitwise operators perform operations on the binary representations of two given numbers."
+      }
+    },
+    "Conditionals": {
+      "If-Else Statement": {
+        "example": ["// check if number is modulo by 2 than Even Number\nif (number % 2 == 0) {\n  console.log('Number is Even'+number);\n}\n// check if number is not modulo by 2 than Odd Number\nelse{\n    console.log('Number is Odd'+number);\n}"]
+      },
+      "Else-If Statement": {
+        "example": ["let number = prompt(\"Enter a number: \");\n// check if number is greater than 0\nif (number > 0) {\n    console.log(\"The number is positive\");\n}\n// check if number is 0\nelse if (number == 0) {\n  console.log(\"The number is 0\");\n}\n// if number is neither greater than 0, nor zero\nelse {\n    console.log(\"The number is negative\");\n}\nconsole.log(\"The if...else if...else statement is easy\");"]
+      },
+      "Switch Statement": {
+        "example": ["var grade = 'A';\n\nconsole.log(\"Entering Switch Block:-\");\nswitch (grade) {\n    case 'A': console.log(\"Good job\");\n    break;\n\n    case 'B': console.log(\"Pretty good\");\n    break;\n\n    case 'C': console.log(\"Passed\");\n    break;\n\n    case 'D': console.log(\"Failed\");\n    break;\n\n    default:  console.log(\"Better Luck Next Time For Grade\");\n}\nconsole.log(\"Exiting switch block;-\")"]
+      }
+    },
+    "Loops": {
+      "For Loop": {
+        "example": ["// looping from i = 1 to 5\nfor (let i = 1; i <= 5; i++) {\n    console.log(i); //1 2 3 4 5\n}"]
+      },
+      "Continue": {
+        "example": ["// condition to continue    \nif (i == 2) {\n    continue;\n}"]
+      },
+      "Break": {
+        "example": ["// condition to break    \nif (i == 4) {\n    break;\n}"]
+      },
+      "While Loop": {
+        "example": ["// while loop from 1 to 5\nwhile (i < 5) {\n    console.log(i); // 1 2 3 4 5\n    i++;\n}"]
+      },
+      "For...In Loop": {
+        "example": ["// using for...in loop\nfor (let i in language) {\n    console.log(language[i]);\n}"]
+      },
+      "Do...While Loop": {
+        "example": ["// do...while loop from 1 to 5\ndo {\n    console.log(i); //1 2 3 4 5\n    i++;\n} while(i <= 5);"]
+      },
+      "For...Of Loop": {
+        "example": ["// using for...of\nfor ( let element of fruits ) {\n    console.log(element);\n}"]
+      }
+    },
+    "Arrays": {
+      "Arrays and Index": {
+        "example": [
+          "let language = [\"Javascript\", \"Java\", \"Python\"];",
+          "let newDataArray = ['Rajesh','Javascript',9];",
+          "console.log(language[0]); // Javascript",
+          "console.log(newDataArray[2]); // 9"
+        ],
+        "description": "An Array in Javascript is an object used to store multiple data in a single variable."
+      },
+      ".Concat() Method": {
+        "example": ["let joinedArray = language.concat(designLanguage);\nconsole.log(joinedArray); // [\"Javascript\", \"Java\",\"Html\",\"Css\"];"],
+        "description": "The Array.concat() function merges two or more arrays into one array."
+      },
+      ".Push() Method": {
+        "example": ["// add \"Php\" to the array\nlanguage.push(\"Php\");\nconsole.log(language);"],
+        "description": "The Array.push() method adds one or many elements to the bottom of an array."
+      },
+      ".Fill() Method": {
+        "example": ["fruits.fill(\"Orange\");\nconsole.log(fruits); // ['Orange', 'Orange', 'Orange']"],
+        "description": "The Array.fill() method fills all the elements of an array from a start index to an end index with a static value."
+      },
+      ".Pop() Method": {
+        "example": ["// remove the last element\nlet removedlanguage = language.pop();\nconsole.log(language) // [\"Javascript\", \"Java\", \"Python\",\"Php\"]\nconsole.log(removedlanguage); // Php"],
+        "description": "The Array.pop() method removes the final element from an array and returns that element."
+      },
+      ".Reverse() Method": {
+        "example": ["// reversing the primeNumber array\nlet reversedArray = primeNumber.reverse();\nconsole.log(reversedArray);\n// Output: [ 11, 7, 5, 3, 1]"],
+        "description": "The Array.reverse() method is used to flip the order of the elements in the array."
+      }
+    },
+    "Functions": {
+      "Declaring And Calling": {
+        "Function": {
+          "declaration": "function demo() {\n    console.log(\"Hello Javascript...!!\");\n}",
+          "call": "demo();",
+          "description": "In JavaScript, a function is a set of statements that performs a specific task."
+        },
+        "Function With Parameter": {
+          "declaration": "function addition(a, b) {\n    console.log(a + b);\n}",
+          "call": "addition(3,6);",
+          "description": "In JavaScript, a function with a parameter is a function that can accept input values."
+        },
+        "Return Keyword": {
+          "example": ["let x = myMulFunction(3, 9);\nfunction myMulFunction(a, b) {\n  return a * b;  // Function returns the product of a and b\n}"]
+        }
+      }
+    },
+    "Objects": {
+      "Object": {
+        "declaration": "let person = {\n  name: \"Marek Lux\",\n  age: 36,\n  city: \"New York\"\n};\nconsole.log(typeof person); // object",
+        "dotNotation": {
+          "example": ["console.log(person.name); // Marek Lux"],
+          "description": "In JavaScript, object accessing with dot notation refers to a way of accessing the properties and methods of an object."
+        },
+        "bracketNotation": {
+          "example": ["console.log(person[\"city\"]); // New York"],
+          "description": "In JavaScript, object accessing with bracket notation is a way to retrieve or set the value of a property in an object."
+        }
+      }
+    },
+    "Classes": {
+      "Class": {
+        "declaration": "class car {\n  constructor(modelName, year) {\n    this.modelName = modelName;\n    this.year = year;\n  }\n}\nconst myCar1 = new Car(\"MG Hector\", 2023);\nconst myCar2 = new Car(\"Scorpio\", 2019);\nconsole.log(myCar1.modelName); // MG Hector\nconsole.log(myCar1.year); // 2023",
+        "description": "Classes in JavaScript are a type of method or function, and they are used as a blueprint for creating objects."
+      },
+      "Class Methods": {
+        "example": "class car {\n  constructor(modelName, year) {\n    this.modelName = modelName;\n    this.year = year;\n  }\n  age() {\n    const date = new Date();\n    return date.getFullYear() - this.year;\n  }\n}\nconst myCar1 = new Car(\"MG Hector\", 2018);\nconst myCar2 = new Car(\"Scorpio\", 2019);\nconsole.log(myCar1.modelName); // MG Hector\nconsole.log(myCar1.year); // 2018\nconsole.log(myCar1.age()); // 5 Year",
+        "description": "Class methods in JavaScript are the functions defined inside the class constructor."
+      }
+    },
+    "Iterators": {
+      "Iterator": {
+        "String Iterator": {
+          "example": ["// calling the Symbol.iterator() method\nconst strIterator = str[Symbol.iterator]();\nconsole.log(strIterator); //StringIterator {}"]
+        },
+        "Array Iterator": {
+          "example": ["// calling the Symbol.iterator() method\nconst arrIterator = arr[Symbol.iterator]();\nconsole.log(arrIterator); //Array Iterator {}"]
+        }
+      },
+      "next() Method": {
+        "example": ["console.log(arrIterator.next()); // {value: \"J\", done: false}\nconsole.log(arrIterator.next()); // {value: \"a\", done: false}\nconsole.log(arrIterator.next()); // {value: \"v\", done: false}\nconsole.log(arrIterator.next()); // {value: \"a\", done: false}\nconsole.log(arrIterator.next()); // {value: \"s\", done: false}\nconsole.log(arrIterator.next()); // {value: \"c\", done: false}\nconsole.log(arrIterator.next()); // {value: \"r\", done: false}\nconsole.log(arrIterator.next()); // {value: \"i\", done: false}\nconsole.log(arrIterator.next()); // {value: \"p\", done: false}\nconsole.log(arrIterator.next()); // {value: \"t\", done: false}\nconsole.log(arrIterator.next()); // {value: undefined, done: true}"]
+      }
+    },
+    "Promises": {
+      "Catch() Method": {
+        "example": ["// executes if there is an error\ncounterValue.catch(\n    function errorValue(result) {\n        console.log(result); \n        //Promise rejected\n    }\n);"]
+      },
+      "Finally() Method": {
+        "example": ["// add other blocks of code\n\ncounterValue.finally(\n    function demo() \n    {\n        console.log('This code is executed.');\n    }\n);"]
+      }
+    },
+    "Async - Await": {
+      "Async Function": {
+        "example": ["async function demo() {\n    console.log('Hello Async function.'); //Hello Async function.\n    return Promise.resolve(1);\n}\ndemo();"],
+        "description": "An async function in JavaScript is a type of function that is used to write asynchronous code more cleanly and concisely."
+      },
+      "Await Keyword": {
+        "example": ["// async function\nasync function asyncFuncDemo() {\n    // wait until the promise resolves \n    let result = await promise; \n    console.log(result); // Promise resolved\n    console.log('Hello Javascript'); // Hello Javascript\n}\n// calling the async function\nasyncFuncDemo();"],
+        "description": "The await keyword is used in an asynchronous function to pause the execution of the function until a Promise is resolved."
+      }
+    }
+  }
+  

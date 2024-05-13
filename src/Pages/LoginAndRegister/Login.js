@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
-// import { useRef } from "react";
 import { UserContext } from "../../Components/UserContext/UserContext";
 
 import Lottie from "lottie-react";
@@ -16,13 +15,12 @@ export const Login = ({ setUserInfoLocal }) => {
   const [isloading, setIsLoading] = useState(false);
 
   const { setUserInfo, setIsLogedIn } = useContext(UserContext);
-  // const animationRef = useRef(null);
 
   const login = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
-    const response = await fetch("https://backend-devblog.onrender.com/login", {
+    const response = await fetch("https://backenddevblog.onrender.com/login", {
       method: "POST",
       body: JSON.stringify({ username, password}),
       headers: { "Content-Type": "application/json" },

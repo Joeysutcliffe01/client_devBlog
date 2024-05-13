@@ -6,6 +6,9 @@
 @import "Components/Hero/hero.css";
 @import "Components/Hero/hero.css";
 @import "Components/Footer/footer.css";
+@import "Components/IconLayouts/IconsRow/icons_row.css";
+@import "Components/News/NewsLayoutRow/news_layout_row.css";
+@import "Components/News/NewsLayoutColumn/news_layout_column.css";
 
 
 @import "Pages/LoginAndRegister/login_and_register.css";
@@ -14,6 +17,8 @@
 @import "Pages/Home/home.css";
 @import "Pages/EditPost/editPost.css";
 @import "Pages/pageNotFound/pageNotFound.css";
+@import "Pages/SingleCheatSheet/singleCheatSheet.css";
+@import "Pages/SingleGuids/single_guids.css";
 
 @import "utils/ScroolTo/scroll_to_top.css";
 

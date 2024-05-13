@@ -1,19 +1,19 @@
 import "./App.css";
 import { Nav } from "./Components/Header/Nav";
-import { RoutesPage } from "./Pages/Routes/RoutesPage";
+import { RoutesPage,  } from "./Pages/Routes/RoutesPage";
 import { UserContextProvider } from "./Components/UserContext/UserContext";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 // import { Footer } from "./Components/Footer/Footer";
 
-const logedInUserInfo =
-  window.localStorage.getItem("user_information") || false;
+const logedInUserInfo = window.localStorage.getItem("user_information") || false;
 
   // console.log("logedInUserInfo catched-------", logedInUserInfo)
 
 function App() {
   const [menu, setMenu] = useState();
   const [userInfoLocal, setUserInfoLocal] = useState(logedInUserInfo.username);
+  const location = useLocation();
 
   const { pathname } = useLocation();
 
@@ -26,6 +26,10 @@ function App() {
   useEffect(() => {
     setUserInfoLocal(JSON.parse(window.localStorage.getItem("user_information")))
   }, []);
+
+  if(userInfoLocal === null && location.pathname !== "/" ){
+    <Navigate to={"/"} />;
+ }
 
   return (
     <UserContextProvider>

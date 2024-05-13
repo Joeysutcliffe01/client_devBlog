@@ -1,0 +1,68 @@
+.single_guid_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border: 2px solid red; */
+}
+
+.single_guid_hero{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 40rem;
+    width: 80%;
+    margin-bottom: 4rem;
+    /* border: 2px solid red; */
+}
+
+.single_guid_title_container{
+  position: relative;
+}
+
+
+.single_guid_title_blob{
+    position: absolute;
+    width: 180%;
+    top: -9rem;
+    left: -8rem;
+    z-index: -1;
+}
+
+.single_guid_title{
+    font-size: 4rem;
+    z-index: 1;
+    color: white;
+}
+
+.single_guid_shortdec{
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(84, 95, 104);
+}
+
+.single_guid_longdec_container{
+    width: 65%;
+    border-bottom: 3px solid rgb(229, 226, 226);
+}
+
+.single_guid_longdec{
+    font-size: 1.5rem;
+    text-align: left;
+    margin-bottom: 9rem;
+    line-height: 3rem;
+}
+
+.cheat_sheet_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cheat_sheet_container h1{
+    margin: 4rem 0 4rem 0;
+    font-size: 2.5rem;
+    color: rgb(118, 120, 122);
+}

@@ -19,7 +19,7 @@ export const SinglePost = () => {
       behavior: "smooth",
     });
 
-    fetch(`https://backend-devblog.onrender.com/post/${id}`).then((res) => {
+    fetch(`https://backenddevblog.onrender.com/post/${id}`).then((res) => {
       res.json().then((resInfo) => {
         setPostInfo(resInfo);
       });
@@ -27,12 +27,7 @@ export const SinglePost = () => {
   }, []);
 
   if (!postInfo) return "";
-
-  // console.log(
-  //   "singlePost----------------",
-  //   postInfo.author.username === userInfo
-  // );
-  // console.log("userInfo----------------", userInfo);
+  
 
   return (
     <motion.section
@@ -49,7 +44,7 @@ export const SinglePost = () => {
       <div className="single_post_hero">
         <img
           className="single_post_cover_img"
-          src={`https://backend-devblog.onrender.com/${postInfo.cover}`}
+          src={`https://backenddevblog.onrender.com/${postInfo.cover}`}
           alt="cover"
         />
         <h3>{"@" + postInfo.author.username}</h3>

@@ -41,11 +41,14 @@
 }
 
 .hero_heading {
+    color: rgb(48, 49, 50);
     font-size: 2rem;
 }
 
 .hero_p {
-    font-size: 1.2rem;
+    color: rgb(71, 72, 74);
+    font-size: 1.3rem;
+    font-weight: 500;
 }
 
 .hero_heading span,

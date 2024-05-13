@@ -3,6 +3,7 @@ import { PostsLayoutColumn } from "../../Components/Posts/PostsLayoutColumn/Post
 import { Hero } from "../../Components/Hero/Hero";
 import { NewsLayoutColumn } from "../../Components/News/NewsLayoutColumn/NewsLayoutColumn";
 import { SlowServerMessage } from "../../Components/SlowServerMessage/SlowServerMessage";
+import { IconsRow } from "../../Components/IconLayouts/IconsRow/IconsRow";
 
 export const Home = (userInfoLocal) => {
   const [showBanner, setShowBanner] = useState(
@@ -26,10 +27,11 @@ export const Home = (userInfoLocal) => {
         <Hero />
 
         {userInfoLocal?.userInfoLocal ? (
-          <>
-          <PostsLayoutColumn />
-          <NewsLayoutColumn />
-          </>
+          <div>
+            <IconsRow/>
+            <PostsLayoutColumn />
+            <NewsLayoutColumn />
+          </div>
         ) : ""}
         
         {JSON.parse(showBanner) !== false && (

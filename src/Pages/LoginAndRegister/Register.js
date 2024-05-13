@@ -57,7 +57,7 @@ export const Register = () => {
     setIsLoading(true);
 
     const response = await fetch(
-      "https://backend-devblog.onrender.com/register",
+      "https://backenddevblog.onrender.com/register",
       {
         method: "POST",
         body: JSON.stringify({ username, password, avatar }),

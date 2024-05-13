@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 export const ScrollToTheTop = ({showBtnAt}) => {
   const [showButton, setShowButton] = useState(false);
 
+  console.log("showButton:", showButton)
+
   // console.log("showBtnAt inside of ScrollToTheTop---", showBtnAt)
   // console.log("showBtnAt typeOf inside of ScrollToTheTop---", typeof showBtnAt)
 
@@ -13,6 +15,7 @@ export const ScrollToTheTop = ({showBtnAt}) => {
 
   useEffect(() => {
     const handleScrollButtonVisibility = () => {
+      console.log("Inside of handleScrollButtonVisibility")
       window.scrollY > showBtnAt ? setShowButton(true) : setShowButton(false);
     };
 
@@ -28,7 +31,9 @@ export const ScrollToTheTop = ({showBtnAt}) => {
 
     <>
         {/* {showButton && (  */}
-            <div className="scroll_to_top_btn_container" style={{right: showButton ? "-15rem" : "-25rem"}}>
+            <div className="scroll_to_top_btn_container" 
+            style={{right: showButton ? "-15rem" : "-25rem"}}
+            >
                 <span class="material-symbols-outlined scroll_to_top_btn" onClick={handleScrollToTop}>
                 stat_2
                 </span>

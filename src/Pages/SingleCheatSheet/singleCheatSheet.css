@@ -1,0 +1,81 @@
+.cheat_sheet_main{
+    display: flex;
+    justify-content: center;
+    align-items: self-start;
+    flex-wrap: wrap;
+    width: 100%;
+    
+}
+
+.cheat_sheet_containe{
+    /* z-index: 20; */
+    width: 40rem;
+    background-color: #F8F8FF;
+    margin: 1rem;
+    border-radius: 1rem;
+    padding: 7rem 1rem 1rem 1rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    /* min-height: 20rem; */
+}
+
+
+.cheat_sheet_category_blob{
+    width: 25rem;
+    /* height: 5rem; */
+    z-index: 0;
+    position: absolute;
+    top: -20rem;
+    left: -2rem;
+    border-radius: 40%;
+    /* border: 2px solid red; */
+    transform: rotate(30deg);
+}
+
+.cheat_sheet_category{
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -.1rem;
+    left: 1rem;
+    color: rgb(255, 255, 255);
+}
+
+.code-example{
+    cursor: pointer;
+    width: min-content;
+    z-index: 100;
+    transition: all .3s ease-in-out;
+    border: 2px solid rgba(255, 0, 0, 0);
+}
+.code-example:hover{
+    /* cursor: pointer; */
+    width: min-content;
+    z-index: 100;
+    border: 2px solid rgb(231, 228, 228);
+}
+
+.code-example-text{
+    /* border: 2px solid red; */
+    cursor: pointer;
+    min-height: 100%;
+}
+
+.code-example-copy-button{
+    position: absolute;
+    top: 1rem;
+    right: -10rem;
+    border: none;
+    transition: all .3s ease-in-out;
+    background-color: #c6c6d1;
+    color: #aaaab3;
+    font-size: 1.3rem;
+}
+
+.code-example:hover .code-example-copy-button{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border: none;
+    background-color: #f8f8ff03;
+}

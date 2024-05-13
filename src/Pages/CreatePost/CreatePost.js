@@ -49,7 +49,7 @@ export const CreatePost = () => {
 
     // console.log("files--------", files);
 
-    const response = await fetch("https://backend-devblog.onrender.com/create_post", {
+    const response = await fetch("https://backenddevblog.onrender.com/create_post", {
       method: "POST",
       // headers: { "Content-Type": "application/json" },
       body: data,

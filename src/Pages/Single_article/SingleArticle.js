@@ -13,12 +13,12 @@ export const SingleArticle = () => {
   const url = 'https://gnews.io/api/v4/search?q=' + category + '&lang=en&country=us&max=10&apikey=' + apikey;
 
   // console.log("id from SingleArticle", author);
-  console.log("id from SingleArticle", article);
+  // console.log("id from SingleArticle", article);
 
   useEffect(() => {
     fetch(url).then((res) => {
 
-      console.log("res inside of SingleArticle", res)
+      // console.log("res inside of SingleArticle", res)
       res.json().then((news) => {
         setArticle(news.articles.find((art) => art.title === id));
       });

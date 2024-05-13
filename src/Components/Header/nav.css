@@ -163,6 +163,16 @@ nav ul li {
     /* border: 2px solid red; */
 }
 
+.nav_menu_btns_container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 2rem;
+    padding-left: .5rem;
+    /* border: 2px solid rgb(0, 255, 247); */
+}
+
 .nav_menu_btns {
     border: none;
     background-color: transparent;
@@ -170,15 +180,18 @@ nav ul li {
     padding: 0;
     width: min-content;
     margin-top: .5rem;
-    font-size: 1.1em;
-    font-weight: 600;
+    font-size: 1.4em;
+    font-weight: 500;
     cursor: pointer;
     /* font-weight: 600; */
-    color: rgb(85, 82, 82);
+    color: rgb(58, 50, 50);
+    margin-bottom: 1rem;
+    /* border-bottom: 2px solid rgb(85, 82, 82); */
     /* border: 2px solid rgb(0, 255, 247); */
 
 }
 
 .nav_menu_btns:hover {
   opacity: 0.8;
+  text-decoration: underline;
 }

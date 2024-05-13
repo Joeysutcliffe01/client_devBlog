@@ -25,9 +25,8 @@ export const Nav = ({
     }
   }, [userInfoLocal]);
 
-  console.log("userInfoLocal?.usersAvatar inside of nav......", userInfoLocal)
-
-  console.log("avatarSrc inside of nav>", avatarSrc)
+  // console.log("userInfoLocal?.usersAvatar inside of nav......", userInfoLocal)
+  // console.log("avatarSrc inside of nav>", avatarSrc)
 
 
   const { pathname } = useLocation();
@@ -37,12 +36,12 @@ export const Nav = ({
   };
 
   // endPoints:
-  // https://backend-devblog.onrender.com
+  // http://localhost:4000
   // http://localhost:4000
 
 
   const logout = () => {
-    fetch("https://backend-devblog.onrender.com/logout", {
+    fetch("https://backenddevblog.onrender.com/logout", {
       credentials: "include",
       method: "POST",
     });
@@ -89,7 +88,7 @@ export const Nav = ({
               <button onClick={handelMenu} className="menu_btn">
                 {menu ? "X" : "-"}
               </button>
-              <div className=" menu_user_info">
+              <div className="menu_user_info">
                 <img
                   src={avatarSrc}
                   alt="logedin user icon"
@@ -101,12 +100,17 @@ export const Nav = ({
                   )}
                 </h3>
               </div>
-              <Link to="/all_blogs" className="nav_menu_btns">
-                Blog
-              </Link>
-              <button onClick={logout} className="nav_menu_btns">
-                Logout
-              </button>
+              <div className="nav_menu_btns_container">
+                <Link to="/guids/js" className="nav_menu_btns">
+                  Guides
+                </Link>
+                <Link to="/all_blogs" className="nav_menu_btns">
+                  Blog
+                </Link>
+                <Link onClick={logout} className="nav_menu_btns">
+                  Logout
+                </Link>
+              </div>
             </div>
           </>
         )}
