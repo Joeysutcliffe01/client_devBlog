@@ -85,7 +85,7 @@ export const EditPost = () => {
             />
           </div>
           <img
-            src={`https://backend-devblog.onrender.com/${files}`}
+            src={`http://localhost:4000//${files}`}
             alt="Create post cover icon placeholder"
             className="edit_post_cover_img"
           />

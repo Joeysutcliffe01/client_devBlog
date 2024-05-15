@@ -19,7 +19,7 @@ export function PostsLayoutColumn() {
     setShowMorePosts((prev) => !prev);
   };
 
-  // https://backend-devblog.onrender.com
+  // http://localhost:4000/
 
   useEffect(() => {
     fetch("https://backend-devblog.onrender.com/post").then((res) => {
@@ -29,7 +29,7 @@ export function PostsLayoutColumn() {
     });
   }, []);
 
-  console.log("posts;", posts)
+  // console.log("posts;", posts)
 
   return (
     <>

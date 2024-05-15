@@ -16,11 +16,11 @@ import { SingleGuids } from "../SingleGuids/SingleGuids.js";
 export const RoutesPage = ({ setMenu, setUserInfoLocal, userInfoLocal }) => {
   const location = useLocation();
 
-  console.log("location:", location.pathname)
+  // console.log("location:", location.pathname)
   
   useEffect(() => {
 
-    console.log("Inside of useEffect in RoutesPage:")
+    // console.log("Inside of useEffect in RoutesPage:")
     
   //   if(userInfoLocal === null && location.pathname !== "/" ){
   //     console.log("Inside of useEffect in RoutesPage:")

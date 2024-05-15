@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import data from "../../Data/DevGuids/guidInfoJs.json";
 import { SingleCheatSheet } from '../SingleCheatSheet/SingleCheatSheet';
 import { ScrollToTheTop } from "../../utils/ScroolTo/ScrollToTheTop";
@@ -16,6 +16,13 @@ export const SingleGuids = () => {
             <p key={index}>{line}</p>
         ));
     };
+
+    useEffect(() => {
+        // Scroll to top on page load
+        // window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+        window.scrollTo(0, 0);
+      }, []);
+    
 
     return (
         <div className='single_guid_container'>

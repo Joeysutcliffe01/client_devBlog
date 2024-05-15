@@ -17,9 +17,9 @@ export const SinglePost = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
-    });
+    }, []);
 
-    fetch(`https://backend-devblog.onrender.com/post/${id}`).then((res) => {
+    fetch(`http://localhost:4000//post/${id}`).then((res) => {
       res.json().then((resInfo) => {
         setPostInfo(resInfo);
       });
@@ -44,7 +44,7 @@ export const SinglePost = () => {
       <div className="single_post_hero">
         <img
           className="single_post_cover_img"
-          src={`https://backend-devblog.onrender.com/${postInfo.cover}`}
+          src={`http://localhost:4000//${postInfo.cover}`}
           alt="cover"
         />
         <h3>{"@" + postInfo.author.username}</h3>

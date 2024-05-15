@@ -17,6 +17,9 @@ export const Nav = ({
   const [avatarSrc, setAvatarSrc] = useState("");
   const navigate = useNavigate();
 
+  const dev = process.env.REACT_APP_DEV
+  const prod = process.env.REACT_APP_PROD
+
   useEffect(() => {
     if(userInfoLocal?.usersAvatar){
       setAvatarSrc(userInfoLocal?.usersAvatar)
@@ -25,23 +28,15 @@ export const Nav = ({
     }
   }, [userInfoLocal]);
 
-  // console.log("userInfoLocal?.usersAvatar inside of nav......", userInfoLocal)
-  // console.log("avatarSrc inside of nav>", avatarSrc)
-
-
   const { pathname } = useLocation();
 
   const handelMenu = () => {
     setMenu((prev) => !prev);
   };
 
-  // endPoints:
-  // http://localhost:4000
-  // http://localhost:4000
-
 
   const logout = () => {
-    fetch("https://backend-devblog.onrender.com/logout", {
+    fetch(`${dev ? dev : prod}logout`, {
       credentials: "include",
       method: "POST",
     });
@@ -53,9 +48,9 @@ export const Nav = ({
     navigate('/');
   };
 
-  if (redirect) {
-    return navigate('/');
-  }
+  // if (redirect) {
+  //   return navigate('/');
+  // }
   if (pathname.includes("login")) return;
   if (pathname.includes("register")) return;
 

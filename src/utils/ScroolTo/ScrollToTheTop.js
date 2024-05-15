@@ -15,7 +15,7 @@ export const ScrollToTheTop = ({showBtnAt}) => {
 
   useEffect(() => {
     const handleScrollButtonVisibility = () => {
-      console.log("Inside of handleScrollButtonVisibility")
+      // console.log("Inside of handleScrollButtonVisibility")
       window.scrollY > showBtnAt ? setShowButton(true) : setShowButton(false);
     };
 

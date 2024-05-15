@@ -16,11 +16,17 @@ export const Login = ({ setUserInfoLocal }) => {
 
   const { setUserInfo, setIsLogedIn } = useContext(UserContext);
 
+  const dev = process.env.REACT_APP_DEV
+  const prod = process.env.REACT_APP_PROD
+
+  // console.log("envoritment:", env)
+  // console.log("process.env.REACT_APP_DEV:", process.env.REACT_APP_DEV)
+
   const login = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
-    const response = await fetch("https://backend-devblog.onrender.com/login", {
+    const response = await fetch(`${dev ? dev : prod}login`, {
       method: "POST",
       body: JSON.stringify({ username, password}),
       headers: { "Content-Type": "application/json" },
