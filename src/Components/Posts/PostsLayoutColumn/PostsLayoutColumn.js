@@ -11,6 +11,9 @@ export function PostsLayoutColumn() {
 
   const [showMorePosts, setShowMorePosts] = useState(false);
 
+  const dev = process.env.REACT_APP_DEV
+  const prod = process.env.REACT_APP_PROD
+
   useEffect(() => {
     setShowMorePosts(true);
   }, []);
@@ -19,10 +22,8 @@ export function PostsLayoutColumn() {
     setShowMorePosts((prev) => !prev);
   };
 
-  // http://localhost:4000/
-
   useEffect(() => {
-    fetch("https://backend-devblog.onrender.com/post").then((res) => {
+    fetch(`${dev ? dev : prod}post`).then((res) => {
       res.json().then((posts) => {
         setPosts(posts);
       });

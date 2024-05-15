@@ -19,10 +19,13 @@ export const EditPost = () => {
 
   const [redirect, setRedirect] = useState(false);
 
+  const dev = process.env.REACT_APP_DEV
+  const prod = process.env.REACT_APP_PROD
+
   useEffect(() => {
     // window.scrollTo(0, 0);
     window.scrollTo(0, 0);
-    fetch("https://backend-devblog.onrender.com/post/" + id).then(
+    fetch(`${dev ? dev : prod}post/${id}`).then(
       (response) => {
         response.json().then((postInfo) => {
           setFullPostInfo(postInfo);
@@ -48,7 +51,7 @@ export const EditPost = () => {
     if (files?.[0]) {
       data.set("file", files?.[0]);
     }
-    const response = await fetch("https://backend-devblog.onrender.com/post", {
+    const response = await fetch(`${dev ? dev : prod}post`, {
       method: "PUT",
       body: data,
       credentials: "include",
@@ -85,7 +88,7 @@ export const EditPost = () => {
             />
           </div>
           <img
-            src={`http://localhost:4000//${files}`}
+            src={`${dev ? dev : prod}${files}`}
             alt="Create post cover icon placeholder"
             className="edit_post_cover_img"
           />

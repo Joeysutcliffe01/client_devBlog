@@ -25,6 +25,9 @@ export const Register = () => {
   const [isloading, setIsLoading] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
+  const dev = process.env.REACT_APP_DEV
+  const prod = process.env.REACT_APP_PROD
+
   const avatarImages = [
     {
       image: avatarImage1,
@@ -57,7 +60,7 @@ export const Register = () => {
     setIsLoading(true);
 
     const response = await fetch(
-      "http://localhost:4000/register",
+      `${dev ? dev : prod}/register`,
       {
         method: "POST",
         body: JSON.stringify({ username, password, avatar }),

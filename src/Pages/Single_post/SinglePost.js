@@ -13,13 +13,16 @@ export const SinglePost = () => {
   const { id } = useParams();
   const showBtnAt = 800
 
+  const dev = process.env.REACT_APP_DEV
+  const prod = process.env.REACT_APP_PROD
+
   useEffect(() => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     }, []);
 
-    fetch(`http://localhost:4000//post/${id}`).then((res) => {
+    fetch(`${dev ? dev : prod}post/${id}`).then((res) => {
       res.json().then((resInfo) => {
         setPostInfo(resInfo);
       });
@@ -44,7 +47,7 @@ export const SinglePost = () => {
       <div className="single_post_hero">
         <img
           className="single_post_cover_img"
-          src={`http://localhost:4000//${postInfo.cover}`}
+          src={`${dev ? dev : prod}${postInfo.cover}`}
           alt="cover"
         />
         <h3>{"@" + postInfo.author.username}</h3>
