@@ -60,7 +60,7 @@ export const Register = () => {
     setIsLoading(true);
 
     const response = await fetch(
-      `${dev ? dev : prod}/register`,
+      `${dev ? dev : prod}register`,
       {
         method: "POST",
         body: JSON.stringify({ username, password, avatar }),
