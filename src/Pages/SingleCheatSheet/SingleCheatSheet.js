@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import data from '../../Data/DevGuids/cheatSheetJs.json';
+import data from '../../Data/JavaScript/cheatSheetJs.json';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
 import blob from "../../Assets/Blobs/blob_4.svg"

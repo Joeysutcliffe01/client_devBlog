@@ -8,8 +8,11 @@ import blob5 from "../../../Assets/Blobs/blob_5.svg";
 export function PostsLayoutRow() {
   const [posts, setPosts] = useState([]);
 
+  const dev = process.env.REACT_APP_DEV
+  const prod = process.env.REACT_APP_PROD
+
   useEffect(() => {
-    fetch("https://backend-devblog.onrender.com/post").then((res) => {
+    fetch(`${dev ? dev : prod}post`).then((res) => {
       res.json().then((posts) => {
         setPosts(posts);
       });

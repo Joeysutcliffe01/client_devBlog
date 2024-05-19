@@ -9,6 +9,7 @@
 @import "Components/IconLayouts/IconsRow/icons_row.css";
 @import "Components/News/NewsLayoutRow/news_layout_row.css";
 @import "Components/News/NewsLayoutColumn/news_layout_column.css";
+@import "Components/videoLayouts/RowLayout/video_row_layout.css";
 
 
 @import "Pages/LoginAndRegister/login_and_register.css";

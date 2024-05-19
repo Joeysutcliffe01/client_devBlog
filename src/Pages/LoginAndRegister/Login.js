@@ -19,8 +19,10 @@ export const Login = ({ setUserInfoLocal }) => {
   const dev = process.env.REACT_APP_DEV
   const prod = process.env.REACT_APP_PROD
 
-  // console.log("envoritment:", env)
-  // console.log("process.env.REACT_APP_DEV:", process.env.REACT_APP_DEV)
+  console.log("dev------------", dev)
+  console.log("prod------------", prod)
+
+  
 
   const login = async (e) => {
     e.preventDefault();

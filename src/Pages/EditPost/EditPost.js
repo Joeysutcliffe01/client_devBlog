@@ -38,9 +38,6 @@ export const EditPost = () => {
     );
   }, []);
 
-  // console.log("files-------", typeof files === "string");
-  // console.log("fullPostInfo", fullPostInfo);
-
   async function updatePost(ev) {
     ev.preventDefault();
     const data = new FormData();

@@ -1,0 +1,63 @@
+{
+
+    "video_type": [
+        {
+            "video_courses_type": "JavaScript Courses",
+            "name": "Full Courses",
+            "video_urls": [
+                {
+                    "name": "JavaScript Full Course for Beginners | Complete All-in-One Tutorial | 8 Hours",
+                    "auther": "Dave Gray",
+                    "url":"https://www.youtube.com/watch?v=EfAl9bwzVZk&list=PL0Zuz27SZ-6Oi6xNtL_fwCrwpuqylMsgT&index=29"
+                },
+                {
+                    "name": "Learn JavaScript by Building 7 Games",
+                    "auther": "SuperSimpleDev",
+                    "url":"https://www.youtube.com/watch?v=ec8vSKJuZTk"
+                },
+                {
+                    "name": "JavaScript Full Course for free",
+                    "auther": "Bro Code",
+                    "url":"https://www.youtube.com/watch?v=8dWL3wF_OMw"
+                }
+            ]
+        },
+        {
+            "video_courses_type": "JavaScript Courses",
+            "name": "JavaScript fundamentals",
+            "video_urls": [
+                {
+                    "name": "How To Create/Use Functions - JavaScript Essentials",
+                    "auther": " Web Dev Simplified",
+                    "url":"https://www.youtube.com/watch?v=FOD408a0EzU"
+                },
+                {
+                    "name": "Arrow Functions JavaScript Tutorial - What NOT to do!!!",
+                    "auther": "ColorCode",
+                    "url":"https://www.youtube.com/watch?v=ajTvmGxWQF8&t=10s"
+                },
+                {
+                    "name": "What are Parameters and Arguments?",
+                    "auther": "Dev Dreamer",
+                    "url":"https://www.youtube.com/watch?v=k1-tpFDyUwo"
+                },
+                {
+                    "name": "8 Must Know JavaScript Array Methods",
+                    "auther": "Web Dev Simplified",
+                    "url":"https://www.youtube.com/watch?v=R8rmfD9Y5-c"
+                },
+                {
+                    "name": "JavaScript String Methods and Properties",
+                    "auther": "Dave Gray",
+                    "url":"https://www.youtube.com/watch?v=LiuzigJldNo"
+                },
+                {
+                    "name": "8 NEW JavaScript 2024 Features",
+                    "auther": "Web Dev Simplified",
+                    "url":"https://www.youtube.com/watch?v=duNEnLUxie8"
+                }
+            ]
+        }
+    ]
+    
+}

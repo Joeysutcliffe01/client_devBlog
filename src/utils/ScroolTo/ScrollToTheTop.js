@@ -4,11 +4,6 @@ import { useEffect, useState } from "react";
 export const ScrollToTheTop = ({showBtnAt}) => {
   const [showButton, setShowButton] = useState(false);
 
-  console.log("showButton:", showButton)
-
-  // console.log("showBtnAt inside of ScrollToTheTop---", showBtnAt)
-  // console.log("showBtnAt typeOf inside of ScrollToTheTop---", typeof showBtnAt)
-
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
